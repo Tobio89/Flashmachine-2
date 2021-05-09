@@ -1,20 +1,17 @@
-import {Switch, Route} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Main from "./pages/Main";
 
-import style from "./App.module.scss"
-import Header from "./components/Header";
-
-
-
+import style from "./App.module.scss";
+import Header from "./ui/Header";
 
 function App() {
   return (
     <main className={style.main}>
-      <Header/>
+      <Header />
       <Switch>
         <Route path="/">
-          <Main/>
+          <Main />
         </Route>
       </Switch>
     </main>
