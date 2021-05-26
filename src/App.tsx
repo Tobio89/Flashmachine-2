@@ -1,17 +1,17 @@
 import { Switch, Route } from "react-router-dom";
 
-import Main from "./pages/Main";
+import Header from "./ui/Header";
+import WordEntry from "./pages/WordEntry";
 
 import style from "./App.module.scss";
-import Header from "./ui/Header";
 
 function App() {
   return (
-    <main className={style.main}>
+    <main className={style.outer}>
       <Header />
       <Switch>
         <Route path="/">
-          <Main />
+          <WordEntry />
         </Route>
       </Switch>
     </main>

@@ -1,0 +1,23 @@
+.WordList {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--opal);
+  width: 100%;
+  padding: 5px;
+  height: 500px;
+  .wordCell {
+    background-color: cornflowerblue;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .delete {
+      display: block;
+      width: 20px;
+      background-color: coral;
+    }
+    .hidden {
+      display: none;
+    }
+  }
+}

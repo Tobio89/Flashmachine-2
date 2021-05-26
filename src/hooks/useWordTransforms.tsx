@@ -5,11 +5,15 @@ function useWordTransforms() {
     });
   }
 
+  function isValidWord(word: string) {
+    return /\w+/.test(word);
+  }
+
   const canSubmit = (wordString: string) => {
     const r = splitAndClean(wordString).length;
     return r > 0 && r <= 30;
   };
-  return { canSubmit };
+  return { canSubmit, isValidWord };
 }
 
 export default useWordTransforms;

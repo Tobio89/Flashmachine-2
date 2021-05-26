@@ -1,9 +1,13 @@
+.outer {
+  align-items: center;
+  background-color: var(--cadet-blue);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 10px;
+  width: 100vw;
+}
+
 .main {
-    align-items: center;
-    background-color: var(--bkg);
-    display: flex;
-    flex-direction: column;
-    height:100vh;
-    padding:10px;
-    width:100vw;
+  display: flex;
 }
