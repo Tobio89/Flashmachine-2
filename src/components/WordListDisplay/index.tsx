@@ -1,4 +1,3 @@
-import { useState } from "react";
 import style from "./WordList.module.scss";
 
 type Props = {
@@ -12,21 +11,12 @@ type CellProps = {
 };
 
 function WordCell({ word, remove }: CellProps) {
-  const [showDelete, setShow] = useState<boolean>(false);
-
   return (
-    <div
-      className={style.wordCell}
-      onMouseEnter={() => setShow(true)}
-      onMouseLeave={() => setShow(false)}
-    >
+    <div className={style.wordCell}>
       <span className={style.word}>{word}</span>
-      <span
-        className={showDelete ? style.delete : style.hidden}
-        onClick={() => remove()}
-      >
+      <button className={style.delete} onClick={() => remove()}>
         X
-      </span>
+      </button>
     </div>
   );
 }

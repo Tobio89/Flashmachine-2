@@ -1,18 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    sans-serif; */
+  font-family: "Quicksand", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   color: #fff;
 
   --charcoal: #38474b;
+  --border: hsla(193, 15%, 26%, 0.1);
   --cadet-blue: #699c9d;
   --opal: #c7ddda;
   --y-g-crayola: #ccd97b;
-  --dark-olive: #6c783d;
+  --dark-olive: #537a25;
+  --mb-pink: #a28497;
+  --pastel-pink: #e2b1b1;
+  --cinnabar: #db4c40;
+  --salsa: #fb3640;
 }
 
 * {
