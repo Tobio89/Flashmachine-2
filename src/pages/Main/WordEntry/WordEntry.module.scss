@@ -1,0 +1,28 @@
+input {
+  width: 100%;
+}
+
+.prevent {
+  background-color: var(--salsa);
+}
+
+.buttons {
+  width: 100%;
+  height: 40px;
+  background-color: var(--opal);
+  border-radius: 0 0 3px 3px;
+}
+.submit {
+  background-color: var(--cinnabar);
+  width: 100%;
+  height: 100%;
+  border: 0;
+  color: white;
+  border-radius: 3px;
+}
+.submit:hover {
+  background-color: var(--salsa);
+}
+.submit:active {
+  transform: translateY(2px);
+}

@@ -1,7 +1,7 @@
 import { Switch, Route } from "react-router-dom";
 
 import Header from "./ui/Header";
-import WordEntry from "./pages/WordEntry";
+import Main from "./pages/Main";
 
 import style from "./App.module.scss";
 
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/">
-          <WordEntry />
+          <Main />
         </Route>
       </Switch>
     </main>

@@ -6,7 +6,7 @@ function useWordTransforms() {
   // }
 
   function isValidWord(word: string) {
-    return /\w+/.test(word);
+    return /\w+/.test(word) || /[\uAC00-\uD7AF]+/.test(word);
   }
 
   const canSubmit = (list: string[]) => {
