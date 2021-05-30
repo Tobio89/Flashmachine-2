@@ -18,6 +18,9 @@
   & button:active {
     transform: translateY(2px);
   }
+  & button i {
+    font-size: large;
+  }
 }
 .submit {
   background-color: var(--cinnabar);

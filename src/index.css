@@ -11,15 +11,13 @@ body {
 
   color: #fff;
 
-  --charcoal: #38474b;
+  --phthalo: #1e352f;
   --border: hsla(193, 15%, 26%, 0.1);
   --cadet-blue: #699c9d;
   --opal: #c7ddda;
-  --green-hover: #688d3f;
-  --y-g-crayola: #ccd97b;
-  --dark-olive: #537a25;
-  --mb-pink: #a28497;
-  --pastel-pink: #e2b1b1;
+  --p-purple: #624cab;
+  --max-purple: #a5a8f0;
+  --deep-sparkle: #4c6161;
   --cinnabar: #db4c40;
   --salsa: #fb3640;
 }

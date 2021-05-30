@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import CardEditor from "./CardEditor";
+import Editor from "./Editor";
 import WordTabs from "./WordTabs";
 
 import { DefinitionPack } from "../../../config/types";
@@ -35,11 +35,15 @@ function CardEditing({ definitions }: Props) {
         setTab={setTab}
         activeTab={activeWord.queryWord}
       />
-      <CardEditor activeWord={activeWord} />
+      <Editor activeWord={activeWord} />
       <div className={style.buttons}>
-        <button>{"<--"}</button>
+        <button>
+          <i className="fas fa-angle-left"></i>
+        </button>
         <button>Make Cards</button>
-        <button>{"-->"}</button>
+        <button>
+          <i className="fas fa-angle-right"></i>
+        </button>
       </div>
     </>
   );
