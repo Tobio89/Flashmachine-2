@@ -11,15 +11,19 @@ body {
 
   color: #fff;
 
-  --phthalo: #1e352f;
-  --border: hsla(193, 15%, 26%, 0.1);
-  --cadet-blue: #699c9d;
-  --opal: #c7ddda;
-  --p-purple: #624cab;
-  --max-purple: #a5a8f0;
-  --deep-sparkle: #4c6161;
   --cinnabar: #db4c40;
   --salsa: #fb3640;
+
+  --blue-0: #47624f;
+  --blue-1: #4d8876;
+  --blue-2: #52ad9c;
+  --blue-3: #79d5be;
+  --blue-4: #9ffcdf;
+  --green-0: #447604;
+  --green-1: #589e2b;
+  --green-2: #62b23e;
+  --green-3: #6cc551;
+  --green-4: #79ca61;
 }
 
 * {

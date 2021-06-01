@@ -1,5 +1,5 @@
 .tabMenu {
-  background-color: var(--deep-sparkle);
+  background-color: var(--blue-1);
   display: flex;
   flex-direction: column;
   height: 500px;
@@ -13,7 +13,7 @@
 
 .tab {
   align-items: center;
-  background-color: var(--deep-sparkle);
+  background-color: var(--blue-1);
   border-radius: 3px 0 0 3px;
   border: none;
   color: white;
@@ -23,11 +23,11 @@
 }
 
 .tab:hover {
-  background-color: var(--p-purple);
+  background-color: var(--blue-3);
 }
 
 .activeTab {
-  background-color: var(--max-purple);
+  background-color: var(--blue-3);
   border-radius: 3px 0 0 3px;
   border: none;
   color: white;
