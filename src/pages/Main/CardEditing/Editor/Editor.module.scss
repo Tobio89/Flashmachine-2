@@ -4,6 +4,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .title {
@@ -12,8 +13,4 @@
   text-align: center;
   padding: 13px;
   width: 100%;
-}
-
-.definition {
-  margin: 5px;
 }

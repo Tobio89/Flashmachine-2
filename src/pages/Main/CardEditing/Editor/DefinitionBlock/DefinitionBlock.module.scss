@@ -1,0 +1,10 @@
+.definitionBlock {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+}
