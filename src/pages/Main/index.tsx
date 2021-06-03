@@ -1,7 +1,6 @@
 import { useState } from "react";
-
-import axios from "../../config/axiosinst";
 import { DefinitionPack } from "../../config/types";
+import useGetWords from "../../hooks/useGetWords";
 
 import useWordTransforms from "../../hooks/useWordTransforms";
 import CardEditing from "./CardEditing";
@@ -15,6 +14,7 @@ function Main() {
     useState<DefinitionPack[] | null>(null);
 
   const { isValidWord, canSubmit } = useWordTransforms();
+  const { requestWords, isLoading } = useGetWords();
 
   function addToList(newWord: string) {
     if (isValidWord(newWord)) {
@@ -44,12 +44,10 @@ function Main() {
     }
   }
 
-  function requestWords() {
+  async function handleRequest() {
     if (wordList && canSubmit(wordList)) {
-      axios
-        .post("", { word_array: wordList })
-        .then((resp) => setDefinitionsList(resp.data))
-        .catch((e) => console.log(e));
+      const data = await requestWords(wordList);
+      setDefinitionsList(data);
     }
   }
 
@@ -62,7 +60,8 @@ function Main() {
           wordList={wordList}
           addToList={addToList}
           removeWord={removeWord}
-          requestWords={requestWords}
+          requestWords={handleRequest}
+          isLoading={isLoading}
         />
       )}
     </section>

@@ -9,9 +9,16 @@ type Props = {
   addToList: (_: string) => void;
   removeWord: (_: string) => void;
   requestWords: () => void;
+  isLoading: boolean;
 };
 
-function WordEntry({ wordList, addToList, removeWord, requestWords }: Props) {
+function WordEntry({
+  wordList,
+  addToList,
+  removeWord,
+  requestWords,
+  isLoading,
+}: Props) {
   const [wordInput, setWordInput] = useState<string>("");
   const [preventInput, setPreventInput] = useState<boolean>(false);
 
@@ -39,7 +46,12 @@ function WordEntry({ wordList, addToList, removeWord, requestWords }: Props) {
       />
       <WordListDisplay words={wordList} removeWord={removeWord} />
       <div className={style.buttons}>
-        <button className={style.submit} onClick={() => requestWords()}>
+        <button
+          className={isLoading ? style.loadingSubmit : style.submit}
+          onClick={() => {
+            if (!isLoading) requestWords();
+          }}
+        >
           Get Definitions!
         </button>
       </div>
