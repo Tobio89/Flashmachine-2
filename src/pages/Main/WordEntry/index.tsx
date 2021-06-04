@@ -30,6 +30,21 @@ function WordEntry({
     }
   }, [wordList]);
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      if (e.ctrlKey && !isLoading) {
+        requestWords();
+      } else {
+        addToList(wordInput);
+        setWordInput("");
+      }
+    } else if (e.key === "Backspace" && e.ctrlKey) {
+      if (wordList && wordList.length > 0) {
+        removeWord(wordList[0]);
+      }
+    }
+  };
+
   return (
     <>
       <input
@@ -37,12 +52,7 @@ function WordEntry({
         placeholder="Add Words Here!"
         value={wordInput}
         onChange={(e) => setWordInput(e.target.value)}
-        onKeyPress={(e) => {
-          if (e.key === "Enter") {
-            addToList(wordInput);
-            setWordInput("");
-          }
-        }}
+        onKeyDown={(e) => handleKeyDown(e)}
       />
       <WordListDisplay words={wordList} removeWord={removeWord} />
       <div className={style.buttons}>
