@@ -12,6 +12,7 @@ function Main() {
   const [wordList, setWordList] = useState<string[] | null>(null);
   const [definitionsList, setDefinitionsList] =
     useState<DefinitionPack[] | null>(null);
+  const [resetList, setResetList] = useState<DefinitionPack[] | null>(null);
 
   const { isValidWord, canSubmit } = useWordTransforms();
   const { requestWords, isLoading } = useGetWords();
@@ -48,6 +49,7 @@ function Main() {
     if (wordList && canSubmit(wordList)) {
       const data = await requestWords(wordList);
       setDefinitionsList(data);
+      setResetList(data);
     }
   };
 
