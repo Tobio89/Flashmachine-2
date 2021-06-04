@@ -16,7 +16,7 @@ function Main() {
   const { isValidWord, canSubmit } = useWordTransforms();
   const { requestWords, isLoading } = useGetWords();
 
-  function addToList(newWord: string) {
+  const addToList = (newWord: string) => {
     if (isValidWord(newWord)) {
       // Make sure word is a valid word
 
@@ -36,20 +36,20 @@ function Main() {
         setWordList([newWord]);
       }
     }
-  }
+  };
 
-  function removeWord(word: string) {
+  const removeWord = (word: string) => {
     if (wordList && wordList.length > 0) {
       setWordList(wordList.filter((w) => w !== word));
     }
-  }
+  };
 
-  async function handleRequest() {
+  const handleRequest = async () => {
     if (wordList && canSubmit(wordList)) {
       const data = await requestWords(wordList);
       setDefinitionsList(data);
     }
-  }
+  };
 
   return (
     <section className={style.main}>
