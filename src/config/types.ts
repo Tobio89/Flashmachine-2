@@ -13,3 +13,10 @@ export type DefinitionPack = {
     queryWord : string,
     results : Definition[]
 }
+
+
+export type flashPack = {
+    word: string,
+    meaning: string
+    hanjas?: string
+}
