@@ -10,9 +10,24 @@
 .title {
   border-bottom: 1px solid var(--blue-0);
   font-size: large;
-  text-align: center;
   padding: 13px;
+  position: relative;
   width: 100%;
+}
+
+.button {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 10px;
+  top: 10px;
+}
+.editButton {
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  right: 50px;
+  top: 10px;
 }
 
 .editBox {

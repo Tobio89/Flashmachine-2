@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { DefinitionPack, flashPack } from "../../config/types";
 import { defsToFlash } from "../../func";
 import useGetWords from "../../hooks/useGetWords";
@@ -54,14 +54,23 @@ function Main() {
     }
   };
 
-  useEffect(() => {
-    console.log(flashContents);
-  }, [flashContents]);
+  //This useEffect updates the search wordList along with the flashContents.
+  // useEffect(() => {
+  //   if (flashContents && flashContents.length > 0) {
+  //     setWordList(flashContents.map((f) => f.word));
+  //   } else if (flashContents?.length === 0) {
+  //     setWordList(null);
+  //     setFlashContents(null);
+  //   }
+  // }, [flashContents]);
 
   return (
     <section className={style.main}>
-      {flashContents ? (
-        <CardEditing definitions={flashContents} />
+      {flashContents && flashContents.length > 0 ? (
+        <CardEditing
+          definitions={flashContents}
+          setFlashContents={setFlashContents}
+        />
       ) : (
         <WordEntry
           wordList={wordList}
