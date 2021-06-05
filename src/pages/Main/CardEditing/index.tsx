@@ -3,19 +3,19 @@ import { useEffect, useState } from "react";
 import Editor from "./Editor";
 import WordTabs from "./WordTabs";
 
-import { DefinitionPack } from "../../../config/types";
+import { DefinitionPack, flashPack } from "../../../config/types";
 
 import style from "./CardEditing.module.scss";
 
 type Props = {
-  definitions: DefinitionPack[];
+  definitions: flashPack[];
 };
 
 function CardEditing({ definitions }: Props) {
-  const [activeWord, setActiveWord] = useState<DefinitionPack>(definitions[0]);
+  const [activeWord, setActiveWord] = useState<flashPack>(definitions[0]);
 
   const setTab = (word: string) => {
-    const a = definitions.find((def) => def.queryWord === word);
+    const a = definitions.find((def) => def.word === word);
     if (a) {
       setActiveWord(a);
     }
@@ -31,9 +31,9 @@ function CardEditing({ definitions }: Props) {
   return (
     <>
       <WordTabs
-        words={definitions?.map((w: DefinitionPack) => w.queryWord)}
+        words={definitions?.map((w: flashPack) => w.word)}
         setTab={setTab}
-        activeTab={activeWord.queryWord}
+        activeTab={activeWord.word}
       />
       <Editor activeWord={activeWord} />
       <div className={style.buttons}>

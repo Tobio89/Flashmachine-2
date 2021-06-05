@@ -1,22 +1,22 @@
 import DefinitionBlock from "./DefinitionBlock";
 
-import { DefinitionPack } from "../../../../config/types";
+import { flashPack } from "../../../../config/types";
 
 import style from "./Editor.module.scss";
 
-const includeHanja = true;
-
 type Props = {
-  activeWord: DefinitionPack;
+  activeWord: flashPack;
 };
 
 function Editor({ activeWord }: Props) {
   return (
     <div className={style.cardEditor}>
-      <div className={style.title}>{activeWord.queryWord}</div>
-      {activeWord.results?.map((d) => (
-        <DefinitionBlock definition={d} includeHanja={includeHanja} />
-      ))}
+      <div className={style.title}>{activeWord.word}</div>
+      <textarea
+        className={style.editBox}
+        value={activeWord.meaning}
+        style={{}}
+      />
     </div>
   );
 }

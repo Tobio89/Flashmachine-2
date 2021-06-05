@@ -60,8 +60,8 @@ function Main() {
 
   return (
     <section className={style.main}>
-      {definitionsList ? (
-        <CardEditing definitions={definitionsList} />
+      {flashContents ? (
+        <CardEditing definitions={flashContents} />
       ) : (
         <WordEntry
           wordList={wordList}
