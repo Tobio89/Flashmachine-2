@@ -8,6 +8,8 @@ type Props = {
   activeWord: flashPack;
 };
 
+// N.B textarea has its own stupid default style, that's why style={{}} is there :|
+
 function Editor({ activeWord }: Props) {
   return (
     <div className={style.cardEditor}>
