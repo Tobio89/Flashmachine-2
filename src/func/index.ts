@@ -14,7 +14,7 @@ export function defsToFlash(defResults: DefinitionPack[]){
             meaning: meaning
         }
         if (hanjas && /\S/.test(hanjas)){
-            out.hanjas = hanjas
+            out.hanjas = hanjas.trimRight()
         }
         return out
     })
