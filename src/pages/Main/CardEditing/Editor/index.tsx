@@ -48,18 +48,22 @@ function Editor() {
     return;
   };
   const handleCancel = () => {
-    /*TODO:
-    This function will look in flashContents for the same existing word, and then replace the modified activeWord with
-    the same entry from flashContents
-    */
-    return;
+    if (activeWord) {
+      setContent(activeWord?.meaning);
+    }
+    setEditing(false);
   };
   const handleDelete = () => {
-    /*TODO:
-    This function will look in flashContents for the word in activeWord, and filter it out.
-    It will then set activeWord to the current flashContent[0] word.
-    */
-    return;
+    const newContent = flashContent?.filter(
+      (f: FlashPack) => f.word !== activeWord?.word
+    );
+    if (newContent && newContent.length > 0) {
+      dispatch(setFlashContentsAction(newContent));
+      dispatch(setActiveWordAction(newContent[0]));
+    } else {
+      dispatch(setFlashContentsAction(null));
+      dispatch(setActiveWordAction(null));
+    }
   };
 
   useEffect(() => {
@@ -72,10 +76,12 @@ function Editor() {
     <div className={style.cardEditor}>
       <div className={style.title}>
         {activeWord?.word}
-        <Button styling={style.button}>X</Button>
+        <Button styling={style.button} onClick={handleDelete}>
+          X
+        </Button>
         <div>
           {editing ? (
-            <Button styling={style.editButton} onClick={() => handleSubmit()}>
+            <Button styling={style.editButton} onClick={handleSubmit}>
               Done
             </Button>
           ) : (
