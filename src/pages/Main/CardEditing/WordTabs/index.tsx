@@ -1,21 +1,24 @@
-import style from "./WordTabs.module.scss";
+import { useSelector, useDispatch } from "react-redux";
 
-type MenuProps = {
-  words: string[] | undefined | null;
-  setTab: (_: string) => void;
-  activeTab: string;
-};
+import { DefinitionPack, FlashPack, State } from "../../../../config/types";
+import {
+  setActiveWordAction,
+  setDefinitionsAction,
+  setFlashContentsAction,
+} from "../../../../store/actions/actions";
+
+import style from "./WordTabs.module.scss";
 
 type TabProps = {
   title: string;
   setTab: (_: string) => void;
-  activeTab: string;
+  isActive: boolean;
 };
 
-function Tab({ title, setTab, activeTab }: TabProps) {
+function Tab({ title, setTab, isActive }: TabProps) {
   return (
     <button
-      className={activeTab === title ? style.activeTab : style.tab}
+      className={isActive ? style.activeTab : style.tab}
       onClick={() => setTab(title)}
     >
       {title}
@@ -23,11 +26,20 @@ function Tab({ title, setTab, activeTab }: TabProps) {
   );
 }
 
-function WordTabs({ words, setTab, activeTab }: MenuProps) {
+function WordTabs() {
+  const dispatch = useDispatch();
+  const flashContent = useSelector((state: State) => state.flashContent);
+  const activeWord = useSelector((state: State) => state.activeWord);
+
   return (
     <div className={style.tabMenu}>
-      {words?.map((w) => (
-        <Tab key={w} title={w} setTab={() => setTab(w)} activeTab={activeTab} />
+      {flashContent?.map((w) => (
+        <Tab
+          key={w.word}
+          title={w.word}
+          setTab={() => dispatch(setActiveWordAction(w))}
+          isActive={activeWord === w}
+        />
       ))}
     </div>
   );

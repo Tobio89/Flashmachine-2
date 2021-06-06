@@ -1,22 +1,44 @@
 import { useState } from "react";
-import { DefinitionPack, flashPack } from "../../config/types";
-import { defsToFlash } from "../../func";
-import useGetWords from "../../hooks/useGetWords";
+import { useSelector, useDispatch } from "react-redux";
 
-import useWordTransforms from "../../hooks/useWordTransforms";
 import CardEditing from "./CardEditing";
+
+import useGetWords from "../../hooks/useGetWords";
+import useWordTransforms from "../../hooks/useWordTransforms";
+
+import { defsToFlash } from "../../func";
+
+import { DefinitionPack, FlashPack, State } from "../../config/types";
+import {
+  setActiveWordAction,
+  setDefinitionsAction,
+  setFlashContentsAction,
+} from "../../store/actions/actions";
 
 import style from "./Main.module.scss";
 import WordEntry from "./WordEntry";
 
 function Main() {
-  const [wordList, setWordList] = useState<string[] | null>(null);
-  const [definitionsList, setDefinitionsList] =
-    useState<DefinitionPack[] | null>(null);
+  const dispatch = useDispatch();
 
-  const [flashContents, setFlashContents] = useState<flashPack[] | null>(null);
+  const [wordList, setWordList] = useState<string[] | null>(null);
+  // const [definitionsList, setDefinitionsList] =
+  //   useState<DefinitionPack[] | null>(null);
+
+  // const [flashContents, setFlashContents] = useState<FlashPack[] | null>(null);
   const { isValidWord, canSubmit } = useWordTransforms();
   const { requestWords, isLoading } = useGetWords();
+
+  const definitionsList = useSelector((state: State) => state.definitions);
+
+  const flashContents = useSelector((state: State) => state.flashContent);
+
+  const setDefinitionsList = (data: DefinitionPack[]) =>
+    dispatch(setDefinitionsAction(data));
+  const setFlashContents = (data: FlashPack[]) =>
+    dispatch(setFlashContentsAction(data));
+  const setActiveWord = (data: FlashPack) =>
+    dispatch(setActiveWordAction(data));
 
   const addToList = (newWord: string) => {
     if (isValidWord(newWord)) {
@@ -50,7 +72,9 @@ function Main() {
     if (wordList && canSubmit(wordList)) {
       const data = await requestWords(wordList);
       setDefinitionsList(data); // To enable a reset
-      setFlashContents(defsToFlash(data));
+      const toFlash = defsToFlash(data);
+      setFlashContents(toFlash);
+      setActiveWord(toFlash[0]);
     }
   };
 
@@ -67,10 +91,7 @@ function Main() {
   return (
     <section className={style.main}>
       {flashContents && flashContents.length > 0 ? (
-        <CardEditing
-          definitions={flashContents}
-          setFlashContents={setFlashContents}
-        />
+        <CardEditing />
       ) : (
         <WordEntry
           wordList={wordList}

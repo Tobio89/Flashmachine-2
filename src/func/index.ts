@@ -1,7 +1,7 @@
-import { Definition, DefinitionPack, flashPack } from "../config/types";
+import { Definition, DefinitionPack, FlashPack } from "../config/types";
 
 export function defsToFlash(defResults: DefinitionPack[]) {
-  const flash: flashPack[] = defResults.map((defPack: DefinitionPack) => {
+  const flash: FlashPack[] = defResults.map((defPack: DefinitionPack) => {
     const word = defPack.queryWord;
     const meaning =
       defPack.results
@@ -16,7 +16,7 @@ export function defsToFlash(defResults: DefinitionPack[]) {
       defPack.results.map((res: Definition) => res.hanja || null).join(" ") ||
       null;
 
-    const out: flashPack = {
+    const out: FlashPack = {
       word: word,
       meaning: meaning,
     };

@@ -1,0 +1,12 @@
+.button {
+  background-color: var(--green-3);
+  border: 0;
+  color: white;
+  border-radius: 3px;
+}
+.button:hover {
+  background-color: var(--green-4);
+}
+.button:active {
+  transform: translateY(2px);
+}
