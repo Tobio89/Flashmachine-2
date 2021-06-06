@@ -38,7 +38,7 @@ function WordTabs() {
           key={w.word}
           title={w.word}
           setTab={() => dispatch(setActiveWordAction(w))}
-          isActive={activeWord === w}
+          isActive={activeWord?.word === w.word}
         />
       ))}
     </div>

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Editor from "./Editor";
 import WordTabs from "./WordTabs";
 
