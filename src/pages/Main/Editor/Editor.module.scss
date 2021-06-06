@@ -1,0 +1,86 @@
+.cardEditor {
+  background-color: var(--blue-2);
+  height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.title {
+  border-bottom: 1px solid var(--blue-0);
+  font-size: large;
+  padding: 13px;
+  position: relative;
+  width: 100%;
+}
+
+.buttonBox {
+  position: absolute;
+  height: 30px;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+
+.editButton {
+  width: 40px;
+  height: 30px;
+}
+
+.editBox {
+  background-color: var(--blue-2);
+  border: none;
+  color: white;
+  height: 100%;
+  overflow-y: auto;
+  resize: none;
+  width: 100%;
+}
+
+.editing {
+  background-color: var(--blue-3);
+  color: black;
+  border: none;
+}
+
+.bottomButtons {
+  width: 100%;
+  height: 40px;
+  background-color: var(--opal);
+  border-radius: 0 0 3px 3px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+
+  & button {
+    background-color: var(--green-3);
+    height: 100%;
+    border: 0;
+    color: white;
+  }
+  & button:hover {
+    background-color: var(--green-4);
+  }
+  & button:active {
+    transform: translateY(2px);
+  }
+  & button i {
+    font-size: large;
+  }
+}
+.submit {
+  background-color: var(--green-3);
+  width: 100%;
+  height: 100%;
+  border: 0;
+  color: white;
+  border-radius: 3px;
+}
+.submit:hover {
+  background-color: var(--green-4);
+}
+.submit:active {
+  transform: translateY(2px);
+}
