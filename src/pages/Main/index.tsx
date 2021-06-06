@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import CardEditing from "./CardEditing";
-
 import useGetWords from "../../hooks/useGetWords";
 import useWordTransforms from "../../hooks/useWordTransforms";
 
@@ -17,6 +15,7 @@ import {
 
 import style from "./Main.module.scss";
 import WordEntry from "./WordEntry";
+import Editor from "./Editor";
 
 function Main() {
   const dispatch = useDispatch();
@@ -91,7 +90,7 @@ function Main() {
   return (
     <section className={style.main}>
       {flashContents && flashContents.length > 0 ? (
-        <CardEditing />
+        <Editor />
       ) : (
         <WordEntry
           wordList={wordList}
