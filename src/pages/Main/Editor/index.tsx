@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../../../components/Button";
+import BottomButtons from "./BottomButtons";
 
 import { FlashPack, State } from "../../../config/types";
 import {
@@ -128,15 +129,7 @@ function Editor() {
           />
         )}
       </div>
-      <div className={style.bottomButtons}>
-        <button>
-          <i className="fas fa-angle-left"></i>
-        </button>
-        <button>Make Cards</button>
-        <button>
-          <i className="fas fa-angle-right"></i>
-        </button>
-      </div>
+     <BottomButtons dismissEditing={handleDismissEditing}/>
     </>
   );
 }
