@@ -32,7 +32,7 @@
 
 .editBox {
   background-color: var(--blue-2);
-  border: none;
+  border: 1px solid transparent;
   color: white;
   height: 100%;
   overflow-y: auto;
@@ -40,10 +40,18 @@
   width: 100%;
 }
 
+.editBox:focus {
+  border: 1px solid transparent;
+  outline: none;
+}
 .editing {
   background-color: var(--blue-3);
   color: black;
-  border: none;
+  border: 1px solid transparent;
+}
+.editing:focus{
+  outline:white;
+  border: 1px solid white;
 }
 
 .bottomButtons {
