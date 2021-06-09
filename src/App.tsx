@@ -7,6 +7,7 @@ import Header from "./ui/Header";
 import Main from "./pages/Main";
 
 import style from "./App.module.scss";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       <main className={style.outer}>
         <Header />
         <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
           <Route path="/">
             <Main />
           </Route>

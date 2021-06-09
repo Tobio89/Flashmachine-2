@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import WordListDisplay from "./WordListDisplay";
 
 import style from "./WordEntry.module.scss";
+import Loader from "../../../components/Loader";
 
 type Props = {
   wordList: string[] | null;
@@ -62,7 +63,7 @@ function WordEntry({
             if (!isLoading) requestWords();
           }}
         >
-          Get Definitions!
+          {isLoading ? <Loader /> : "Get Definitions!"}
         </button>
       </div>
     </>

@@ -25,6 +25,8 @@ body {
   --green-2: #62b23e;
   --green-3: #6cc551;
   --green-4: #79ca61;
+
+  background-color: var(--blue-2);
 }
 
 * {

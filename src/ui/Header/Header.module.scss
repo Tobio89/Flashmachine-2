@@ -1,4 +1,33 @@
 .header {
   font-size: 20pt;
   margin: 10px;
+  width: 280px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+}
+
+.text {
+  width: 100%;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: flex-end;
+  top: 5px;
+  right: 5px;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  text-decoration: none;
+}
+
+i {
+  font-size: 18px;
+  color: white;
 }
