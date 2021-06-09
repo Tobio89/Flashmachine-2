@@ -7,3 +7,9 @@
   position: relative;
   width: 280px;
 }
+
+@media only screen and (max-width: 285px) {
+  .main{
+    width:100%;
+  }
+}

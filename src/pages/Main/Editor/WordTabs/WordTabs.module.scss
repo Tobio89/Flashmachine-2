@@ -36,3 +36,10 @@
   align-items: center;
   flex: 0 0 25px;
 }
+
+
+@media only screen and (max-width: 480px) {
+  .tabMenu{
+    display:none;
+  }
+}
