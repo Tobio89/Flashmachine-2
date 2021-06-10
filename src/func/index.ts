@@ -28,3 +28,16 @@ export function defsToFlash(defResults: DefinitionPack[]) {
 
   return flash;
 }
+
+export function flashToTxt(flashcardSource: FlashPack[]) {
+  const cardArray: string[] = flashcardSource?.map(
+    (flashContent: FlashPack) => {
+      let flashAsString = `${flashContent.word};${flashContent.meaning}`;
+      if (flashContent.hanjas) {
+        flashAsString += `;${flashContent.hanjas}`;
+      }
+      return flashAsString;
+    }
+  );
+  return cardArray.join("\n");
+}

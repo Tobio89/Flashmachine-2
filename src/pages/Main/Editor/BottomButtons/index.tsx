@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../../components/Button";
 
 import { State } from "../../../../config/types";
+import { flashToTxt } from "../../../../func";
 import { setActiveWordAction } from "../../../../store/actions/actions";
 
 import style from "./BottomButtons.module.scss";
@@ -36,12 +37,27 @@ function BottomButtons({ dismissEditing }: { dismissEditing: () => void }) {
     }
   };
 
+  const handleMake = () => {
+    if (flashContent) {
+      const element = document.createElement("a");
+      const file = new Blob([flashToTxt(flashContent)], {
+        type: "text/plain;charset=utf-8",
+      });
+      element.href = URL.createObjectURL(file);
+      element.download = "flashmachine_anki_flashcards.txt";
+      document.body.appendChild(element);
+      element.click();
+    } else {
+      console.log("No cards - can't make");
+    }
+  };
+
   return (
     <div className={style.bottomButtons}>
       <Button onClick={handleBack}>
         <i className="fas fa-angle-left"></i>
       </Button>
-      <Button>Make Cards</Button>
+      <Button onClick={handleMake}>Make Cards</Button>
       <Button onClick={handleNext}>
         <i className="fas fa-angle-right"></i>
       </Button>
