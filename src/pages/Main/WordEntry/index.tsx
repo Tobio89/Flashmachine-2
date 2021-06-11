@@ -4,6 +4,7 @@ import WordListDisplay from "./WordListDisplay";
 
 import style from "./WordEntry.module.scss";
 import Loader from "../../../components/Loader";
+import Button from "../../../components/Button";
 
 type Props = {
   wordList: string[] | null;
@@ -57,14 +58,14 @@ function WordEntry({
       />
       <WordListDisplay words={wordList} removeWord={removeWord} />
       <div className={style.buttons}>
-        <button
+        <Button
           className={isLoading ? style.loadingSubmit : style.submit}
           onClick={() => {
             if (!isLoading) requestWords();
           }}
         >
           {isLoading ? <Loader /> : "Get Definitions!"}
-        </button>
+        </Button>
       </div>
     </>
   );

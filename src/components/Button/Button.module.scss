@@ -6,7 +6,21 @@
 }
 .button:hover {
   background-color: var(--green-4);
+  animation: bulge 0.1s linear;
 }
 .button:active {
   transform: translateY(2px);
+}
+
+
+@keyframes bulge {
+  0% {
+    transform:scale(1);
+  }
+  50% {
+    transform:scale(1.05);
+  }
+  100% {
+    transform:scale(1);
+  }
 }
