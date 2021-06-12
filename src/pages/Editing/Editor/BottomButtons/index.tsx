@@ -8,7 +8,7 @@ import { setActiveWordAction } from "../../../../store/actions/actions";
 
 import style from "./BottomButtons.module.scss";
 
-function BottomButtons({ dismissEditing }: { dismissEditing: () => void }) {
+function BottomButtons() {
   const dispatch = useDispatch();
   const activeWord = useSelector((state: State) => state.activeWord);
   const flashContent = useSelector((state: State) => state.flashContent);

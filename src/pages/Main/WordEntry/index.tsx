@@ -59,7 +59,7 @@ function WordEntry({
       <WordListDisplay words={wordList} removeWord={removeWord} />
       <div className={style.buttons}>
         <Button
-          className={isLoading ? style.loadingSubmit : style.submit}
+          styling={isLoading ? style.loadingSubmit : style.submit}
           onClick={() => {
             if (!isLoading) requestWords();
           }}

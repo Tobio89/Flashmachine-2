@@ -4,10 +4,12 @@ import { QueryClientProvider } from "react-query";
 import { queryClient } from "./config/react-query";
 
 import Header from "./ui/Header";
+
 import Main from "./pages/Main";
+import About from "./pages/About";
+import Editing from "./pages/Editing";
 
 import style from "./App.module.scss";
-import About from "./pages/About";
 
 function App() {
   return (
@@ -17,6 +19,9 @@ function App() {
         <Switch>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/editing">
+            <Editing />
           </Route>
           <Route path="/">
             <Main />

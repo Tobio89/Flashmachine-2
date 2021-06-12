@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import useGetWords from "../../hooks/useGetWords";
 import useWordTransforms from "../../hooks/useWordTransforms";
 
 import { defsToFlash } from "../../func";
 
-import { DefinitionPack, FlashPack, State } from "../../config/types";
+import { DefinitionPack, FlashPack } from "../../config/types";
 import {
   setActiveWordAction,
   setDefinitionsAction,
@@ -15,22 +16,18 @@ import {
 
 import style from "./Main.module.scss";
 import WordEntry from "./WordEntry";
-import Editor from "./Editor";
 
 function Main() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [wordList, setWordList] = useState<string[] | null>(null);
-  // const [definitionsList, setDefinitionsList] =
-  //   useState<DefinitionPack[] | null>(null);
-
-  // const [flashContents, setFlashContents] = useState<FlashPack[] | null>(null);
   const { isValidWord, canSubmit } = useWordTransforms();
   const { requestWords, isLoading } = useGetWords();
 
-  const definitionsList = useSelector((state: State) => state.definitions);
+  // const definitionsList = useSelector((state: State) => state.definitions);
 
-  const flashContents = useSelector((state: State) => state.flashContent);
+  // const flashContents = useSelector((state: State) => state.flashContent);
 
   const setDefinitionsList = (data: DefinitionPack[]) =>
     dispatch(setDefinitionsAction(data));
@@ -74,32 +71,19 @@ function Main() {
       const toFlash = defsToFlash(data);
       setFlashContents(toFlash);
       setActiveWord(toFlash[0]);
+      history.push("/editing");
     }
   };
 
-  //This useEffect updates the search wordList along with the flashContents.
-  // useEffect(() => {
-  //   if (flashContents && flashContents.length > 0) {
-  //     setWordList(flashContents.map((f) => f.word));
-  //   } else if (flashContents?.length === 0) {
-  //     setWordList(null);
-  //     setFlashContents(null);
-  //   }
-  // }, [flashContents]);
-
   return (
     <section className={style.main}>
-      {flashContents && flashContents.length > 0 ? (
-        <Editor />
-      ) : (
-        <WordEntry
-          wordList={wordList}
-          addToList={addToList}
-          removeWord={removeWord}
-          requestWords={handleRequest}
-          isLoading={isLoading}
-        />
-      )}
+      <WordEntry
+        wordList={wordList}
+        addToList={addToList}
+        removeWord={removeWord}
+        requestWords={handleRequest}
+        isLoading={isLoading}
+      />
     </section>
   );
 }

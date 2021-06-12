@@ -1,21 +1,22 @@
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
+import Button from "../../components/Button";
 import style from "./Header.module.scss";
 
 function Header() {
   const loc = useLocation();
+  const history = useHistory();
   console.log(loc.pathname);
   return (
     <header className={style.header}>
       <span className={style.text}>Flashmachine</span>
       {loc.pathname === "/about" ? (
-        <Link className={style.link} to={"/"}>
+        <Button styling={style.link} onClick={() => history.goBack()}>
           <i className="fas fa-reply"></i>
-        </Link>
+        </Button>
       ) : (
-        <Link className={style.link} to={"/about"}>
+        <Button styling={style.link} onClick={() => history.push("/about")}>
           <i className="fas fa-info"></i>
-        </Link>
+        </Button>
       )}
     </header>
   );

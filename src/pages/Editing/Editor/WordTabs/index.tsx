@@ -1,11 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import { DefinitionPack, FlashPack, State } from "../../../../config/types";
-import {
-  setActiveWordAction,
-  setDefinitionsAction,
-  setFlashContentsAction,
-} from "../../../../store/actions/actions";
+import { FlashPack, State } from "../../../../config/types";
+import { setActiveWordAction } from "../../../../store/actions/actions";
 
 import style from "./WordTabs.module.scss";
 

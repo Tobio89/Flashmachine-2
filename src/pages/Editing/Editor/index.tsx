@@ -43,10 +43,6 @@ function Editor() {
       }
       setEditing(false);
     }
-
-    /*TODO:
-    This function will look in flashContents for the same existing word, and then replace that entry with activeWord
-    */
     return;
   };
   const handleCancel = () => {
@@ -83,10 +79,10 @@ function Editor() {
     return (
       <div className={style.buttonBox}>
         <Button styling={style.editButton} onClick={handleCancel}>
-          Undo
+          <i className="fas fa-undo"></i>
         </Button>
         <Button styling={style.editButton} onClick={handleSubmit}>
-          Done
+          <i className="far fa-check-square"></i>
         </Button>
       </div>
     );
@@ -96,10 +92,10 @@ function Editor() {
     return (
       <div className={style.buttonBox}>
         <Button styling={style.editButton} onClick={handleDelete}>
-          Del
+          <i className="far fa-trash-alt"></i>
         </Button>
         <Button styling={style.editButton} onClick={() => setEditing(true)}>
-          Edit
+          <i className="far fa-edit"></i>
         </Button>
       </div>
     );
@@ -116,7 +112,7 @@ function Editor() {
         {editing ? (
           <textarea
             className={`${style.editBox} ${style.editing}`}
-            value={content} // This may be problematic - it could mean it won't visibly update
+            value={content}
             onChange={(e) => setContent(e.target.value)}
             style={{}}
           />
@@ -129,7 +125,7 @@ function Editor() {
           />
         )}
       </div>
-     <BottomButtons dismissEditing={handleDismissEditing}/>
+      <BottomButtons />
     </>
   );
 }

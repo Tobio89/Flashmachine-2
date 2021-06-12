@@ -1,1 +1,1 @@
-export const APIPREFIX = "http://127.0.0.1:8000/"
+export const APIPREFIX = "https://flashmachine-backend.herokuapp.com/";
