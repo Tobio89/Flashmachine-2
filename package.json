@@ -1,6 +1,9 @@
 {
   "name": "flashmachine",
   "version": "0.1.0",
+  "engines": {
+    "node": "12.18.4"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/react": "^11.2.6",
