@@ -2,7 +2,7 @@
   background-color: var(--blue-1);
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: var(--app-height);
   overflow-y: auto;
   padding: 5px;
   width: 100%;

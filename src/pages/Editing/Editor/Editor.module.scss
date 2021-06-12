@@ -1,6 +1,6 @@
 .cardEditor {
   background-color: var(--blue-2);
-  height: 500px;
+  height: var(--app-height);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -49,8 +49,8 @@
   color: black;
   border: 1px solid transparent;
 }
-.editing:focus{
-  outline:white;
+.editing:focus {
+  outline: white;
   border: 1px solid white;
 }
 

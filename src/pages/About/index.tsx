@@ -89,6 +89,14 @@ function About() {
         </p>
       </details>
       <details className={style.detailBox}>
+        <summary>The meaning is the wrong language!</summary>
+        <p>
+          It's possible if you search for an unusual Korean word, that the
+          result is Korean :| It entirely depends on what the dictionary has for
+          the word, unfortunately.
+        </p>
+      </details>
+      <details className={style.detailBox}>
         <summary>About the dev</summary>
         <p>I'm Tobias. I'm from the UK, but I live in Korea.</p>
         <p>I used to be an English teacher here but now I'm a web developer</p>

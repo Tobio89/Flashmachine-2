@@ -12,6 +12,7 @@ body {
   color: #fff;
 
   --app-width: 380px;
+  --app-height: 500px;
 
   --cinnabar: #db4c40;
   --salsa: #fb3640;
@@ -43,5 +44,6 @@ textarea {
 @media only screen and (max-width: 400px) {
   body {
     --app-width: 95vw;
+    --app-height: calc(100vh - 150px);
   }
 }
