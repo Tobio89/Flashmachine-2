@@ -80,6 +80,15 @@ function About() {
         </p>
       </details>
       <details className={style.detailBox}>
+        <summary>Some meanings look weird</summary>
+        <p>The meanings go through a few processes before they reach you.</p>
+        <p>
+          However, despite my best intentions, even though it's programmed to
+          ignore meanings that don't have any actual letters in them, some still
+          slip past. I'm constantly working to refine this process :)
+        </p>
+      </details>
+      <details className={style.detailBox}>
         <summary>About the dev</summary>
         <p>I'm Tobias. I'm from the UK, but I live in Korea.</p>
         <p>I used to be an English teacher here but now I'm a web developer</p>

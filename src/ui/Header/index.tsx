@@ -5,7 +5,6 @@ import style from "./Header.module.scss";
 function Header() {
   const loc = useLocation();
   const history = useHistory();
-  console.log(loc.pathname);
   return (
     <header className={style.header}>
       <span className={style.text}>Flashmachine</span>

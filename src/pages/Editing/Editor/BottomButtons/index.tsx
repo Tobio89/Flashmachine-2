@@ -27,7 +27,6 @@ function BottomButtons() {
   const handleNext = () => {
     if (activeWord && flashContent) {
       const currentIndex = flashContent?.indexOf(activeWord);
-      console.log(currentIndex, flashContent.length);
       if (currentIndex + 1 && currentIndex + 1 < flashContent.length) {
         //current+1 because 0 is false, of course...
         dispatch(setActiveWordAction(flashContent[currentIndex + 1]));
@@ -47,8 +46,6 @@ function BottomButtons() {
       element.download = "flashmachine_anki_flashcards.txt";
       document.body.appendChild(element);
       element.click();
-    } else {
-      console.log("No cards - can't make");
     }
   };
 

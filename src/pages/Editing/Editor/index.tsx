@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../../../components/Button";
@@ -17,15 +18,13 @@ import style from "./Editor.module.scss";
 
 function Editor() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const activeWord = useSelector((state: State) => state.activeWord);
   const flashContent = useSelector((state: State) => state.flashContent);
 
   const [content, setContent] = useState<string>("");
 
   const [editing, setEditing] = useState<boolean>(false);
-
-  console.log("confirm receive active word: ", activeWord);
-
   const handleSubmit = () => {
     if (activeWord) {
       dispatch(setActiveWordAction({ ...activeWord, meaning: content }));
@@ -61,6 +60,7 @@ function Editor() {
     } else {
       dispatch(setFlashContentsAction(null));
       dispatch(setActiveWordAction(null));
+      history.push("/");
     }
   };
 

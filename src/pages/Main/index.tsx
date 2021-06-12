@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -16,18 +16,17 @@ import {
 
 import style from "./Main.module.scss";
 import WordEntry from "./WordEntry";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 function Main() {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const { storeContent, retrieveContent } = useLocalStorage("flashmachine");
+
   const [wordList, setWordList] = useState<string[] | null>(null);
   const { isValidWord, canSubmit } = useWordTransforms();
   const { requestWords, isLoading } = useGetWords();
-
-  // const definitionsList = useSelector((state: State) => state.definitions);
-
-  // const flashContents = useSelector((state: State) => state.flashContent);
 
   const setDefinitionsList = (data: DefinitionPack[]) =>
     dispatch(setDefinitionsAction(data));
@@ -51,6 +50,7 @@ function Main() {
           // Allow word entry only if word isn't there already
 
           setWordList([newWord, ...wordList]);
+          storeContent([newWord, ...wordList]);
         }
       } else {
         setWordList([newWord]);
@@ -60,7 +60,9 @@ function Main() {
 
   const removeWord = (word: string) => {
     if (wordList && wordList.length > 0) {
-      setWordList(wordList.filter((w) => w !== word));
+      const newList = wordList.filter((w) => w !== word);
+      setWordList(newList);
+      storeContent(newList);
     }
   };
 
@@ -74,6 +76,13 @@ function Main() {
       history.push("/editing");
     }
   };
+
+  useEffect(() => {
+    const previousWordList = retrieveContent();
+    if (previousWordList) {
+      setWordList(previousWordList);
+    }
+  }, []); //eslint-disable-line
 
   return (
     <section className={style.main}>

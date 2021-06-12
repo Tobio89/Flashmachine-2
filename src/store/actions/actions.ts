@@ -11,7 +11,6 @@ export const setFlashContentsAction = (data: FlashPack[] | null) => {
   };
 };
 export const setActiveWordAction = (data: FlashPack | null) => {
-  console.log("Modify Active Word: ", data);
   return {
     type: actionTypes.SET_ACTIVE_WORD,
     payload: { activeWord: data },
