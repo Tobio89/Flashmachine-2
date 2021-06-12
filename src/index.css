@@ -11,6 +11,8 @@ body {
 
   color: #fff;
 
+  --app-width: 380px;
+
   --cinnabar: #db4c40;
   --salsa: #fb3640;
 
@@ -36,4 +38,10 @@ body {
 textarea {
   font-family: "Quicksand", sans-serif;
   padding: 10px;
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    --app-width: 95vw;
+  }
 }

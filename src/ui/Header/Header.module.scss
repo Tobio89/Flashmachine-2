@@ -1,7 +1,7 @@
 .header {
   font-size: 20pt;
   margin: 10px;
-  width: 280px;
+  width: var(--app-width);
   display: flex;
   justify-content: center;
   position: relative;
