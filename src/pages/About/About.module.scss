@@ -14,6 +14,7 @@
 .title {
   width: 100%;
   margin-bottom: 10px;
+  font-size: 1rem;
 }
 .detailBox {
   width: 100%;
@@ -21,6 +22,7 @@
 
   & summary {
     cursor: pointer;
+    font-size: 0.9rem;
   }
 
   & a {

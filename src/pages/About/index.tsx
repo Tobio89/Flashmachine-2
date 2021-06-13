@@ -45,6 +45,14 @@ function About() {
         </p>
       </details>
       <details className={style.detailBox}>
+        <summary>Can I use this on my phone?</summary>
+        <p>
+          Yeeees, I made it with phones in mind, but certainly with iPhones the
+          resulting .txt file can look a bit strange when opened. Also, you need
+          to use the PC to import the cards into Anki!
+        </p>
+      </details>
+      <details className={style.detailBox}>
         <summary>How do I import the cards?</summary>
         <p>
           Importing from .txt is possible on a computer version of the app, not

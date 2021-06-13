@@ -49,13 +49,22 @@ function WordEntry({
 
   return (
     <>
-      <input
-        className={preventInput ? style.prevent : undefined}
-        placeholder="Add Words Here!"
-        value={wordInput}
-        onChange={(e) => setWordInput(e.target.value)}
-        onKeyDown={(e) => handleKeyDown(e)}
-      />
+      <div className={style.inputArea}>
+        <input
+          placeholder={preventInput ? "Max words reached!" : "Add words here!"}
+          value={wordInput}
+          onChange={(e) => setWordInput(e.target.value)}
+          onKeyDown={(e) => handleKeyDown(e)}
+        />
+        <div
+          className={
+            wordList && wordList?.length >= 30 ? style.overcount : style.count
+          }
+        >
+          {wordList?.length || "0"} / 30
+        </div>
+      </div>
+
       <WordListDisplay words={wordList} removeWord={removeWord} />
       <div className={style.buttons}>
         <Button

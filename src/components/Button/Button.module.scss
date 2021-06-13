@@ -1,8 +1,9 @@
 .button {
   background-color: var(--green-3);
   border: 0;
-  color: white;
   border-radius: 3px;
+  color: white;
+  font-size: 1rem;
 }
 .button:hover {
   background-color: var(--green-4);
@@ -12,15 +13,14 @@
   transform: translateY(2px);
 }
 
-
 @keyframes bulge {
   0% {
-    transform:scale(1);
+    transform: scale(1);
   }
   50% {
-    transform:scale(1.05);
+    transform: scale(1.05);
   }
   100% {
-    transform:scale(1);
+    transform: scale(1);
   }
 }
