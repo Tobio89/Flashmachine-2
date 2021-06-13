@@ -75,6 +75,16 @@ function Editor() {
     }
   }, [activeWord]);
 
+  useEffect(() => {
+    if (
+      !flashContent ||
+      flashContent.length === 0 ||
+      flashContent.length === undefined
+    ) {
+      history.replace("/");
+    }
+  }, []); //eslint-disable-line
+
   function EditingButtons() {
     return (
       <div className={style.buttonBox}>
