@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
+import axios from "../../config/axiosinst";
+
 import useGetWords from "../../hooks/useGetWords";
 import useWordTransforms from "../../hooks/useWordTransforms";
 
@@ -69,6 +71,7 @@ function Main() {
   const handleRequest = async () => {
     if (wordList && canSubmit(wordList)) {
       const data = await requestWords(wordList);
+      alert("Got data");
       setDefinitionsList(data); // To enable a reset
       const toFlash = defsToFlash(data);
       setFlashContents(toFlash);
