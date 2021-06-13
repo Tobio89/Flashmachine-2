@@ -8,7 +8,7 @@ function useGetWords() {
     async (wordList: any) => {
       try {
         const response = await fetch(
-          APIPREFIX + "request_words/" + "?nocache=" + new Date().getTime(),
+          APIPREFIX + "request_words/?nocache=" + new Date().getTime(),
           {
             method: "POST",
             headers: {
@@ -18,17 +18,6 @@ function useGetWords() {
           }
         );
         const res = await response.json();
-
-        // const response = await axios("?nocache=" + new Date().getTime(), {
-        //   method: "post",
-        //   data: { word_array: wordList },
-        //   withCredentials: true,
-
-        //   headers: {
-        //     "Access-Control-Allow-Origin": "*",
-        //     "Content-Type": "application/x-www-form-urlencoded",
-        //   },
-        // });
         return res;
       } catch (e) {
         alert(e);
