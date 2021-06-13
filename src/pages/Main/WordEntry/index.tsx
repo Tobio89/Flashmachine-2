@@ -5,6 +5,7 @@ import WordListDisplay from "./WordListDisplay";
 import style from "./WordEntry.module.scss";
 import Loader from "../../../components/Loader";
 import Button from "../../../components/Button";
+import { APIPREFIX } from "../../../config/const";
 
 type Props = {
   wordList: string[] | null;
@@ -32,6 +33,17 @@ function WordEntry({
     }
   }, [wordList]);
 
+  // This useEffect is for Heroku, to make the backend API wake up ASAP
+  useEffect(() => {
+    fetch(APIPREFIX, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    }).then((res) => {
+      res.json().then((data) => console.log(data));
+    });
+  }, []);
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       if (e.ctrlKey && !isLoading) {
