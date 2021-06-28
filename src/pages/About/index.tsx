@@ -53,6 +53,17 @@ function About() {
         </p>
       </details>
       <details className={style.detailBox}>
+        <summary>What does signing up do?</summary>
+        <p>
+          Since downloading the list on your phone isn't that useful, try
+          signing up!
+        </p>
+        <p>
+          On the user page, you can save the current word list, and load the
+          previous one.
+        </p>
+      </details>
+      <details className={style.detailBox}>
         <summary>How do I import the cards?</summary>
         <p>
           Importing from .txt is possible on a computer version of the app, not

@@ -8,6 +8,7 @@ import Header from "./ui/Header";
 import Main from "./pages/Main";
 import About from "./pages/About";
 import Editing from "./pages/Editing";
+import User from "./pages/User";
 
 import style from "./App.module.scss";
 
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path="/editing">
             <Editing />
+          </Route>
+          <Route path="/user">
+            <User />
           </Route>
           <Route path="/">
             <Main />
