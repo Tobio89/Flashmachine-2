@@ -58,12 +58,18 @@ function User() {
   return (
     <div className={style.main}>
       <div className={style.title}>{user?.displayName}'s Flashmachine</div>
+      <div className={style.title}>Word List Options:</div>
+      <div className={style.buttons}>
+        <Button styling={style.button} onClick={saveList}>
+          Save
+        </Button>
 
-      <Button onClick={saveList}>Save Current List</Button>
+        <Button styling={style.button} onClick={loadList}>
+          Load
+        </Button>
+      </div>
 
-      <Button onClick={loadList}>Load Previous List</Button>
-
-      <Button>Log Out</Button>
+      <Button styling={style.logOut}>Log Out</Button>
     </div>
   );
 }

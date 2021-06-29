@@ -15,4 +15,20 @@
     margin-bottom: 10px;
     font-size: 1rem;
   }
+
+  & .buttons {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    padding: 10px;
+
+    & .button {
+      height: 40px;
+      width: 100px;
+    }
+  }
+  & .logOut {
+    justify-self: flex-end;
+  }
 }
