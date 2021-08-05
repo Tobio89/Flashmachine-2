@@ -27,6 +27,11 @@
       height: 40px;
       width: 100px;
     }
+    & .nobutton {
+      height: 40px;
+      width: 100px;
+      background-color: grey;
+    }
   }
   & .logOut {
     justify-self: flex-end;
