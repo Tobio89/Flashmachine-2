@@ -23,8 +23,8 @@ function Editor() {
   const flashContent = useSelector((state: State) => state.flashContent);
 
   const [content, setContent] = useState<string>("");
-
   const [editing, setEditing] = useState<boolean>(false);
+
   const handleSubmit = () => {
     if (activeWord) {
       dispatch(setActiveWordAction({ ...activeWord, meaning: content }));
@@ -44,6 +44,7 @@ function Editor() {
     }
     return;
   };
+
   const handleCancel = () => {
     if (activeWord) {
       setContent(activeWord?.meaning);
@@ -67,6 +68,13 @@ function Editor() {
   const handleDismissEditing = () => {
     handleCancel();
     setEditing(false);
+  };
+
+  // Use ctrl + enter to submit
+  const handleQuickSubmit = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.ctrlKey && e.key === "Enter") {
+      handleSubmit();
+    }
   };
 
   useEffect(() => {
@@ -124,6 +132,7 @@ function Editor() {
             className={`${style.editBox} ${style.editing}`}
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            onKeyDown={handleQuickSubmit}
             style={{}}
           />
         ) : (

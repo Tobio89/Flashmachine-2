@@ -32,9 +32,11 @@ export function defsToFlash(defResults: DefinitionPack[]) {
 export function flashToTxt(flashcardSource: FlashPack[]) {
   const cardArray: string[] = flashcardSource?.map(
     (flashContent: FlashPack) => {
-      let flashAsString = `${flashContent.word};${flashContent.meaning}`;
+      let flashAsString = `${flashContent.word}; ${flashContent.meaning}`;
       if (flashContent.hanjas) {
-        flashAsString += `;${flashContent.hanjas}`;
+        flashAsString += `; ${flashContent.hanjas}`;
+      } else {
+        flashAsString += "; ";
       }
       return flashAsString;
     }
