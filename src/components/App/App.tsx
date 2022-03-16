@@ -1,16 +1,21 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Main, Editing } from "../../pages";
+import styles from "./App.module.scss";
 
 function App() {
   return (
-    <div className="App">
+    <main className={styles.App}>
       <BrowserRouter>
         <Switch>
           <Route path="/">
-            <div>Home</div>
+            <Main />
+          </Route>
+          <Route path="/editing">
+            <Editing />
           </Route>
         </Switch>
       </BrowserRouter>
-    </div>
+    </main>
   );
 }
 
