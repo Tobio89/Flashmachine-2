@@ -6,13 +6,17 @@ function useWordList() {
   const wordList = useStore((store) => store.wordList);
   const setWordList = useStore((store) => store.setWordList);
 
-  function addWordToList(newWord: Word) {
+  function addWordToList(newWord: Word): Boolean {
     if (wordList.length < WORD_LIMIT) {
-      setWordList([newWord, ...wordList]);
+      if (!wordList.find((w) => w.content === newWord.content)) {
+        setWordList([newWord, ...wordList]);
+        return true;
+      }
     }
+    return false;
   }
 
-  function removeWordFromList(wordToRemove: Word) {
+  function removeWordFromList(wordToRemove: Word): void {
     const newWordList = wordList.filter(
       (w) => w.content !== wordToRemove.content
     );
@@ -26,8 +30,9 @@ function useWordList() {
   return {
     addWordToList,
     removeWordFromList,
+    wordList,
     wordCount,
-  };
+  } as const;
 }
 
 export default useWordList;

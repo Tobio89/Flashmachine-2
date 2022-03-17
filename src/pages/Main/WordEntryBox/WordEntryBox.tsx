@@ -14,8 +14,9 @@ function WordEntryBox() {
         const newWord = {
           content: inputRef?.current?.value,
         };
-        addWordToList(newWord);
-        inputRef.current.value = "";
+        if (addWordToList(newWord)) {
+          inputRef.current.value = "";
+        }
       }
     }
   };
