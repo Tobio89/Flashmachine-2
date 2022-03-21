@@ -1,5 +1,5 @@
 import useWordList from "./useWordList";
-// import useGetTranslations from "./useGetTranslations";
+import useGetTranslations from "./useGetTranslations";
 import useHerokuWakeUp from "./useHerokuWakeUp";
 
-export { useWordList, useHerokuWakeUp };
+export { useWordList, useGetTranslations, useHerokuWakeUp };

@@ -5,6 +5,7 @@ import { InitialState, Word } from "../types";
 const useStore = create<InitialState>((set) => ({
   wordList: [],
   setWordList: (state: Word[]) => set({ wordList: state }),
+  definitionsList: [],
 }));
 
 export default useStore;

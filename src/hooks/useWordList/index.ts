@@ -42,11 +42,16 @@ function useWordList() {
     store(newWordList);
   }
 
+  function asArray() {
+    return wordList.map((w) => w.content);
+  }
+
   return {
     addWordToList,
     removeWordFromList,
     wordList,
     wordCount: wordList.length,
+    wordListAsArray: asArray,
   } as const;
 }
 
