@@ -1,5 +1,15 @@
 .WordListElement {
   border-bottom: 1px solid black;
+  color: white;
   display: flex;
+  justify-content: space-between;
   padding: 10px;
+
+  & .Delete {
+    visibility: hidden;
+  }
+
+  &:hover .Delete {
+    visibility: visible;
+  }
 }

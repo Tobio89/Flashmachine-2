@@ -1,0 +1,30 @@
+.Button {
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  height: 22px;
+  justify-content: center;
+  width: 22px;
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &.green {
+    background-color: var(--green-3);
+
+    &:hover {
+      background-color: var(--green-2);
+    }
+  }
+
+  &.red {
+    background-color: var(--salsa);
+
+    &:hover {
+      background-color: var(--cinnabar);
+    }
+  }
+}
