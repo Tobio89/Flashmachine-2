@@ -42,15 +42,11 @@ function useWordList() {
     store(newWordList);
   }
 
-  const wordCount = {
-    asNumber: wordList.length,
-    asString: `${wordList.length} / ${WORD_LIMIT}`,
-  };
   return {
     addWordToList,
     removeWordFromList,
     wordList,
-    wordCount,
+    wordCount: wordList.length,
   } as const;
 }
 
