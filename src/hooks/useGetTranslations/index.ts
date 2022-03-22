@@ -21,7 +21,7 @@ function useGetTranslations() {
           });
         return defsToFlash(data);
       } catch (e) {
-        alert(e);
+        console.log("Error: ", e);
       }
     }
   );
