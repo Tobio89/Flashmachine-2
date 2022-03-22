@@ -15,7 +15,7 @@ function toLabel(wordCount: number) {
 function WordEntryBox() {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { wordCount, addWordToList, wordList } = useWordList();
+  const { wordCount, addWordToList } = useWordList();
   const { requestWords } = useGetTranslations();
 
   const handleKeyEntry = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -36,7 +36,7 @@ function WordEntryBox() {
   };
 
   const submitWordRequest = () => {
-    if (wordList.length) {
+    if (wordCount) {
       requestWords();
     }
   };

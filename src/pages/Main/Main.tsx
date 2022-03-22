@@ -2,6 +2,7 @@ import React from "react";
 
 import WordEntryBox from "./WordEntryBox";
 import WordList from "./WordList";
+import SubmitButton from "./SubmitButton";
 
 import styles from "./Main.module.scss";
 
@@ -10,6 +11,7 @@ function Main() {
     <div className={styles.Main}>
       <WordEntryBox />
       <WordList />
+      <SubmitButton />
     </div>
   );
 }

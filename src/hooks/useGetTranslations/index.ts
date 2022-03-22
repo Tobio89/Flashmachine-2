@@ -8,11 +8,14 @@ import useWordList from "../useWordList";
 import { defsToFlash } from "./funcs";
 
 import { TranslationResponse } from "../../types";
+import { useHistory } from "react-router-dom";
 
 function useGetTranslations() {
   const { wordListAsArray } = useWordList();
   const setHasChanges = useStore((store) => store.setHasChanges);
   const setFlashcardList = useStore((store) => store.setFlashcardList);
+
+  const history = useHistory();
 
   const { mutateAsync: requestWords, isLoading } = useMutation(
     "flashmachine-definitions",
@@ -27,6 +30,7 @@ function useGetTranslations() {
         setHasChanges(false);
         // Place flashcard content directly into store
         setFlashcardList(defsToFlash(data));
+        history.push("/editing");
       } catch (e) {
         console.log("Error: ", e);
       }
