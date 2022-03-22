@@ -5,8 +5,8 @@ export type InitialState = {
   setHasChanges: (state: boolean) => void;
   wordList: Word[];
   setWordList: (state: Word[]) => void;
-  definitionsList: FlashcardContents[];
-  setDefinitionsList: (state: FlashcardContents[]) => void;
+  flashcardList: FlashcardContents[];
+  setFlashcardList: (state: FlashcardContents[]) => void;
 };
 
 export interface Word {

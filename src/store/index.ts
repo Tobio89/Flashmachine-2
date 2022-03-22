@@ -9,9 +9,9 @@ const useStore = create<InitialState>((set) => ({
   setHasChanges: (state: boolean) => set({ hasChanges: state }),
   wordList: [],
   setWordList: (state: Word[]) => set({ wordList: state }),
-  definitionsList: [],
-  setDefinitionsList: (state: FlashcardContents[]) =>
-    set({ definitionsList: state }),
+  flashcardList: [],
+  setFlashcardList: (state: FlashcardContents[]) =>
+    set({ flashcardList: state }),
 }));
 
 export default useStore;
