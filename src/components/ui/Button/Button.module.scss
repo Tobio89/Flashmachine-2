@@ -27,4 +27,16 @@
       background-color: var(--cinnabar);
     }
   }
+
+  &:disabled {
+    background-color: #b6b6b6;
+
+    &:hover {
+      background-color: #b6b6b6;
+    }
+
+    &:active {
+      transform: none;
+    }
+  }
 }

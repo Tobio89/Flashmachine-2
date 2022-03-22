@@ -15,21 +15,21 @@ function App() {
   }
 
   return (
-    <main className={styles.App}>
-      <Header />
-      <div className={styles.Container}>
-        <BrowserRouter>
+    <BrowserRouter>
+      <main className={styles.App}>
+        <Header />
+        <div className={styles.Container}>
           <Switch>
-            <Route path="/">
-              <Main />
-            </Route>
             <Route path="/editing">
               <Editing />
             </Route>
+            <Route path="/">
+              <Main />
+            </Route>
           </Switch>
-        </BrowserRouter>
-      </div>
-    </main>
+        </div>
+      </main>
+    </BrowserRouter>
   );
 }
 

@@ -25,7 +25,7 @@ function useFlashcards() {
     );
   }
 
-  return { editFlashcard, removeFlashcard };
+  return { flashcardList, editFlashcard, removeFlashcard };
 }
 
 export default useFlashcards;

@@ -1,0 +1,10 @@
+.Navigation {
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+
+  & .NavButton {
+    height: 30px;
+    width: 30px;
+  }
+}

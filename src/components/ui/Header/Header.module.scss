@@ -2,10 +2,12 @@
   align-items: center;
   display: flex;
   height: 60px;
-  padding-left: 20px;
-  width: 100%;
+  justify-content: space-between;
+  padding: 0 10px 0 20px;
+  width: 500px;
 
   & h1 {
     color: white;
+    margin: 0;
   }
 }
