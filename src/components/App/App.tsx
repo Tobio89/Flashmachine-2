@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { Main, Editing } from "../../pages";
+import { Main, Editing, Help } from "../../pages";
 
 import Header from "../ui/Header";
 
@@ -20,6 +20,9 @@ function App() {
         <Header />
         <div className={styles.Container}>
           <Switch>
+            <Route path="/help">
+              <Help />
+            </Route>
             <Route path="/editing">
               <Editing />
             </Route>

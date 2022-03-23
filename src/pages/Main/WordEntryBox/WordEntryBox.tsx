@@ -16,28 +16,17 @@ function WordEntryBox() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const { wordCount, addWordToList } = useWordList();
-  const { requestWords } = useGetTranslations();
 
   const handleKeyEntry = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.code === "Enter") {
-      if (e.ctrlKey) {
-        submitWordRequest();
-      } else {
-        if (inputRef?.current?.value) {
-          const newWord = {
-            content: inputRef?.current?.value,
-          };
-          if (addWordToList(newWord)) {
-            inputRef.current.value = "";
-          }
+      if (inputRef?.current?.value) {
+        const newWord = {
+          content: inputRef?.current?.value,
+        };
+        if (addWordToList(newWord)) {
+          inputRef.current.value = "";
         }
       }
-    }
-  };
-
-  const submitWordRequest = () => {
-    if (wordCount) {
-      requestWords();
     }
   };
 
