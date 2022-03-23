@@ -9,6 +9,8 @@ export type InitialState = {
   setFlashcardList: (state: FlashcardContents[]) => void;
   currentFlashcard: FlashcardContents | null;
   setCurrentFlashcard: (state: FlashcardContents | null) => void;
+  edits: string;
+  setEdits: (state: string) => void;
 };
 
 export interface Word {

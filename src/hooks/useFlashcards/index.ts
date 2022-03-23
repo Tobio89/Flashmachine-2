@@ -8,6 +8,8 @@ function useFlashcards() {
   const setCurrentFlashcard = useStore((store) => store.setCurrentFlashcard);
   const isEditing = useStore((store) => store.isEditing);
   const setEditing = useStore((store) => store.setEditing);
+  const edits = useStore((store) => store.edits);
+  const setEdits = useStore((store) => store.setEdits);
 
   function editFlashcard(newContent: FlashcardContents): void {
     setFlashcardList(
@@ -45,6 +47,17 @@ function useFlashcards() {
     }
   }
 
+  function handleEditing(e: React.ChangeEvent<HTMLTextAreaElement>) {
+    setEdits(e.target.value);
+  }
+
+  function submitEdits() {
+    if (!currentFlashcard) return;
+    const newCard = { ...currentFlashcard, meaning: edits };
+    editFlashcard({ ...newCard });
+    setCurrentFlashcard(newCard);
+  }
+
   function toggleEditMode() {
     setEditing(!isEditing);
   }
@@ -58,6 +71,8 @@ function useFlashcards() {
     removeCurrentFlashcard,
     isEditing,
     toggleEditMode,
+    handleEditing,
+    submitEdits,
   };
 }
 

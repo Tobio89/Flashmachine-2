@@ -10,6 +10,7 @@ import styles from "./App.module.scss";
 
 function App() {
   const { isAwake } = useHerokuWakeUp();
+
   if (isAwake) {
     console.log("Backend service is online");
   }

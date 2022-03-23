@@ -1,4 +1,5 @@
 import Button from "../../../components/ui/Button";
+
 import { useFlashcards } from "../../../hooks";
 
 import styles from "./EditorHeader.module.scss";
@@ -9,12 +10,21 @@ function EditorHeader() {
     removeCurrentFlashcard,
     toggleEditMode,
     isEditing,
+    submitEdits,
   } = useFlashcards();
+
+  const handleEditSubmit = () => {
+    if (isEditing) {
+      submitEdits();
+    }
+    toggleEditMode();
+  };
+
   return (
     <div className={styles.EditorHeader}>
       <h1>{currentFlashcard?.word || ""}</h1>
       <div className={styles.Controls}>
-        <Button className={styles.Button} onClick={toggleEditMode}>
+        <Button className={styles.Button} onClick={handleEditSubmit}>
           {isEditing ? (
             <i className="fas fa-check"></i>
           ) : (
