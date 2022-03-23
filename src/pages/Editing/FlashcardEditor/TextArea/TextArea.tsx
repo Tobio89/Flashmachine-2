@@ -1,17 +1,19 @@
 import React from "react";
 
+import { useFlashcards } from "../../../../hooks";
+
 import styles from "./TextArea.module.scss";
 
-interface Props{
-
-};
-
-function TextArea({}:Props){
+function TextArea() {
+  const { currentFlashcard, isEditing } = useFlashcards();
 
   return (
-    <div className={styles.TextArea}></div>
+    <textarea
+      className={styles.TextArea}
+      disabled={!isEditing}
+      value={currentFlashcard?.meaning || ""}
+    />
   );
-
 }
 
 export default TextArea;

@@ -6,6 +6,8 @@ function useFlashcards() {
   const setFlashcardList = useStore((store) => store.setFlashcardList);
   const currentFlashcard = useStore((store) => store.currentFlashcard);
   const setCurrentFlashcard = useStore((store) => store.setCurrentFlashcard);
+  const isEditing = useStore((store) => store.isEditing);
+  const setEditing = useStore((store) => store.setEditing);
 
   function editFlashcard(newContent: FlashcardContents): void {
     setFlashcardList(
@@ -33,6 +35,7 @@ function useFlashcards() {
     removeFlashcard,
     currentFlashcard,
     setCurrentFlashcard,
+    isEditing,
   };
 }
 
