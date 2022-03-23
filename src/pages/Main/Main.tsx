@@ -1,5 +1,3 @@
-import React from "react";
-
 import WordEntryBox from "./WordEntryBox";
 import WordList from "./WordList";
 import SubmitButton from "./SubmitButton";

@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import { useEffect, useCallback } from "react";
 
 import Button from "../../../components/ui/Button";
 import Loader from "../../../components/ui/Loader";
@@ -40,7 +40,7 @@ function SubmitButton() {
     <Button
       className={styles.SubmitButton}
       onClick={submitWordRequest}
-      disabled={isLoading}
+      disabled={isLoading || !wordCount}
     >
       {isLoading ? <Loader /> : <span>Submit Word List</span>}
     </Button>

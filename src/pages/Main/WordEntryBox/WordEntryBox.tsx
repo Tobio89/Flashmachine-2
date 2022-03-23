@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import { WORD_LIMIT } from "../../../const";
 
-import { useWordList, useGetTranslations } from "../../../hooks";
+import { useWordList } from "../../../hooks";
 
 import styles from "./WordEntryBox.module.scss";
 
