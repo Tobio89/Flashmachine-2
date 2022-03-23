@@ -14,6 +14,7 @@ function useGetTranslations() {
   const { wordListAsArray } = useWordList();
   const setHasChanges = useStore((store) => store.setHasChanges);
   const setFlashcardList = useStore((store) => store.setFlashcardList);
+  const setCurrentFlashcard = useStore((store) => store.setCurrentFlashcard);
 
   const history = useHistory();
 
@@ -26,10 +27,16 @@ function useGetTranslations() {
           await axiosInstance.post("request_words/", {
             word_array: wordList,
           });
+
+        // Transform returned data
+        const flashcards = defsToFlash(data);
+
         // Set global state - user no longer has edited changes.
         setHasChanges(false);
         // Place flashcard content directly into store
-        setFlashcardList(defsToFlash(data));
+        setFlashcardList(flashcards);
+        // Set the current flashcard as first flashcard here
+        setCurrentFlashcard(flashcards[0]);
         history.push("/editing");
       } catch (e) {
         console.log("Error: ", e);

@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import axiosInstance from "../../axiosInstance";
 
-function useGetTranslations() {
+function useHerokuWakeUp() {
   const { data: isAwake, isLoading } = useQuery(
     "flashmachine-definitions",
     async () => {
@@ -19,4 +19,4 @@ function useGetTranslations() {
   return { isAwake, isLoading };
 }
 
-export default useGetTranslations;
+export default useHerokuWakeUp;

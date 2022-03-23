@@ -12,6 +12,9 @@ const useStore = create<InitialState>((set) => ({
   flashcardList: [],
   setFlashcardList: (state: FlashcardContents[]) =>
     set({ flashcardList: state }),
+  currentFlashcard: null,
+  setCurrentFlashcard: (state: FlashcardContents) =>
+    set({ currentFlashcard: state }),
 }));
 
 export default useStore;

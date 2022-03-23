@@ -4,6 +4,8 @@ import { FlashcardContents } from "../../types";
 function useFlashcards() {
   const flashcardList = useStore((store) => store.flashcardList);
   const setFlashcardList = useStore((store) => store.setFlashcardList);
+  const currentFlashcard = useStore((store) => store.currentFlashcard);
+  const setCurrentFlashcard = useStore((store) => store.setCurrentFlashcard);
 
   function editFlashcard(newContent: FlashcardContents): void {
     setFlashcardList(
@@ -25,7 +27,13 @@ function useFlashcards() {
     );
   }
 
-  return { flashcardList, editFlashcard, removeFlashcard };
+  return {
+    flashcardList,
+    editFlashcard,
+    removeFlashcard,
+    currentFlashcard,
+    setCurrentFlashcard,
+  };
 }
 
 export default useFlashcards;
