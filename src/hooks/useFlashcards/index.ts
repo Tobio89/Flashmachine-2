@@ -29,13 +29,35 @@ function useFlashcards() {
     );
   }
 
+  function removeCurrentFlashcard() {
+    if (!currentFlashcard) return;
+    setEditing(false);
+    const index = flashcardList.indexOf(currentFlashcard);
+    removeFlashcard(currentFlashcard);
+    if (flashcardList.length > 1) {
+      if (index === 0) {
+        setCurrentFlashcard(flashcardList[1]);
+      } else {
+        setCurrentFlashcard(flashcardList[index - 1]);
+      }
+    } else {
+      setCurrentFlashcard(null);
+    }
+  }
+
+  function toggleEditMode() {
+    setEditing(!isEditing);
+  }
+
   return {
     flashcardList,
     editFlashcard,
     removeFlashcard,
     currentFlashcard,
     setCurrentFlashcard,
+    removeCurrentFlashcard,
     isEditing,
+    toggleEditMode,
   };
 }
 

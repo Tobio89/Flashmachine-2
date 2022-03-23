@@ -13,7 +13,7 @@ const useStore = create<InitialState>((set) => ({
   setFlashcardList: (state: FlashcardContents[]) =>
     set({ flashcardList: state }),
   currentFlashcard: null,
-  setCurrentFlashcard: (state: FlashcardContents) =>
+  setCurrentFlashcard: (state: FlashcardContents | null) =>
     set({ currentFlashcard: state }),
 }));
 

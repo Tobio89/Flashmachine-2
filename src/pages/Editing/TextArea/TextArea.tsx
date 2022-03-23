@@ -1,6 +1,7 @@
+import classNames from "classnames";
 import React from "react";
 
-import { useFlashcards } from "../../../../hooks";
+import { useFlashcards } from "../../../hooks";
 
 import styles from "./TextArea.module.scss";
 
@@ -9,7 +10,7 @@ function TextArea() {
 
   return (
     <textarea
-      className={styles.TextArea}
+      className={classNames(styles.TextArea, isEditing && styles.editing)}
       disabled={!isEditing}
       value={currentFlashcard?.meaning || ""}
     />

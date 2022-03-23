@@ -1,4 +1,5 @@
-import FlashcardEditor from "./FlashcardEditor";
+import EditorHeader from "./EditorHeader";
+import TextArea from "./TextArea";
 
 import { useFlashcards } from "../../hooks";
 
@@ -8,12 +9,17 @@ function Editing() {
   const { currentFlashcard } = useFlashcards();
 
   if (!currentFlashcard) {
-    return <div className={styles.Editing}>There's nothing here yet!</div>;
+    return (
+      <div className={styles.Editing}>
+        <h3 className={styles.EmptyMessage}>There's nothing to edit!</h3>
+      </div>
+    );
   }
 
   return (
     <div className={styles.Editing}>
-      <FlashcardEditor />
+      <EditorHeader />
+      <TextArea />
     </div>
   );
 }

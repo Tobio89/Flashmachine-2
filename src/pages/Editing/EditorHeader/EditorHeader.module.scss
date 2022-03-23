@@ -16,5 +16,10 @@
     align-items: center;
     display: flex;
     gap: 10px;
+
+    & .Button {
+      height: 30px;
+      width: 30px;
+    }
   }
 }

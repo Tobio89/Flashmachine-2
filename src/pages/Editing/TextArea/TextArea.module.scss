@@ -1,5 +1,5 @@
 .TextArea {
-  background-color: var(--blue-2);
+  background-color: var(--blue-1);
   border: 1px solid transparent;
   color: white;
   font-size: 1rem;
@@ -8,4 +8,9 @@
   padding: 10px;
   resize: none;
   width: 100%;
+
+  &.editing {
+    background-color: var(--blue-2);
+    color: black;
+  }
 }
