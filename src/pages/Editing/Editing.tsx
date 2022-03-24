@@ -1,5 +1,6 @@
 import EditorHeader from "./EditorHeader";
 import TextArea from "./TextArea";
+import SideList from "./SideList";
 
 import { useFlashcards } from "../../hooks";
 
@@ -18,6 +19,7 @@ function Editing() {
 
   return (
     <div className={styles.Editing}>
+      <SideList />
       <EditorHeader />
       <TextArea />
     </div>
