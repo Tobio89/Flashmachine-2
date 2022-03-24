@@ -1,11 +1,14 @@
 .SideList {
   --width: 120px;
 
+  border-radius: 5px 0 0 5px;
   display: flex;
   flex-direction: column;
   gap: 5px;
   height: 500px;
   left: calc(var(--width) * -1);
+  overflow-x: visible;
+  overflow-y: auto;
   position: absolute;
   top: 50px;
   width: var(--width);

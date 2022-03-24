@@ -16,9 +16,4 @@
       background-color: var(--blue-2-5);
     }
   }
-
-  &:hover {
-    transform: translateX(-10px);
-    width: calc(100% + 10px);
-  }
 }
