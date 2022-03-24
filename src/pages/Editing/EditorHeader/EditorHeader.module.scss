@@ -10,6 +10,8 @@
   & h1 {
     color: white;
     margin: 0;
+    max-width: 300px;
+    overflow: hidden;
   }
 
   & .Controls {
