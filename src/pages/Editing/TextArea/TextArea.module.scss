@@ -8,6 +8,7 @@
   padding: 10px;
   resize: none;
   width: 100%;
+  z-index: 5;
 
   &.editing {
     background-color: var(--blue-2);

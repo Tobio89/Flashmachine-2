@@ -1,5 +1,5 @@
+import { useState, useEffect } from "react";
 import classNames from "classnames";
-import { useState } from "react";
 
 import { useFlashcards } from "../../../hooks";
 
@@ -14,6 +14,10 @@ function TextArea() {
     handleEditing(e);
   };
 
+  useEffect(() => {
+    setContent(currentFlashcard?.meaning);
+  }, [currentFlashcard]);
+
   return (
     <textarea
       className={classNames(styles.TextArea, isEditing && styles.editing)}
@@ -25,3 +29,11 @@ function TextArea() {
 }
 
 export default TextArea;
+
+/* 
+
+The useEffect is there so that the content of the textarea changes if the current flashcard changes.
+For some reason, just changing the currentFlashcard doesn't cause a rerender.
+I also tried passing stuff in through props and that also didn't work.
+
+*/
