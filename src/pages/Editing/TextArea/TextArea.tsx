@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import classNames from "classnames";
 
 import styles from "./TextArea.module.scss";
@@ -21,11 +20,3 @@ function TextArea({ isEditing, contentToEdit, handleEditContent }: Props) {
 }
 
 export default TextArea;
-
-/* 
-
-The useEffect is there so that the content of the textarea changes if the current flashcard changes.
-For some reason, just changing the currentFlashcard doesn't cause a rerender.
-I also tried passing stuff in through props and that also didn't work.
-
-*/
