@@ -7,8 +7,11 @@ import SideList from "./SideList";
 
 import { useFlashcards } from "../../hooks";
 
-import styles from "./Editing.module.scss";
+import { flashToTxt } from "../../helpers";
+
 import { FlashcardContents } from "../../types";
+
+import styles from "./Editing.module.scss";
 
 function Editing() {
   const {
@@ -67,6 +70,19 @@ function Editing() {
     }
   };
 
+  const handleMakeFile = () => {
+    if (flashcardList) {
+      const element = document.createElement("a");
+      const file = new Blob([flashToTxt(flashcardList)], {
+        type: "text/plain;charset=utf-8",
+      });
+      element.href = URL.createObjectURL(file);
+      element.download = "flashmachine_anki_flashcards.txt";
+      document.body.appendChild(element);
+      element.click();
+    }
+  };
+
   return (
     <div className={styles.Editing}>
       <EditorHeader
@@ -88,6 +104,7 @@ function Editing() {
       <EditorFooter
         selectNextCard={selectNextCard}
         selectPreviousCard={selectPreviousCard}
+        handleMakeFile={handleMakeFile}
       />
     </div>
   );

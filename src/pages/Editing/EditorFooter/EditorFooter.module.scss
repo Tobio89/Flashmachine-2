@@ -1,9 +1,9 @@
 .EditorFooter {
   align-items: center;
   display: flex;
+  gap: 5px;
   height: 50px;
   width: 100%;
-  gap: 5px;
 
   & .NavButton {
     flex: 0 0 20%;
