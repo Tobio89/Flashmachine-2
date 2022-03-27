@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import EditorFooter from "./EditorFooter";
 import EditorHeader from "./EditorHeader";
 import TextArea from "./TextArea";
 import SideList from "./SideList";
@@ -48,6 +49,24 @@ function Editing() {
     toggleEditMode();
   };
 
+  const selectNextCard = () => {
+    const currentIndex = flashcardList.indexOf(currentFlashcard);
+    if (currentIndex === flashcardList.length - 1) {
+      handleChangeFlashcard(flashcardList[0]);
+    } else {
+      handleChangeFlashcard(flashcardList[currentIndex + 1]);
+    }
+  };
+
+  const selectPreviousCard = () => {
+    const currentIndex = flashcardList.indexOf(currentFlashcard);
+    if (currentIndex === 0) {
+      handleChangeFlashcard(flashcardList[flashcardList.length - 1]);
+    } else {
+      handleChangeFlashcard(flashcardList[currentIndex - 1]);
+    }
+  };
+
   return (
     <div className={styles.Editing}>
       <EditorHeader
@@ -65,6 +84,10 @@ function Editing() {
         isEditing={isEditing}
         contentToEdit={contentToEdit}
         handleEditContent={handleEditContent}
+      />
+      <EditorFooter
+        selectNextCard={selectNextCard}
+        selectPreviousCard={selectPreviousCard}
       />
     </div>
   );

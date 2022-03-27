@@ -1,0 +1,17 @@
+.EditorFooter {
+  align-items: center;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  gap: 5px;
+
+  & .NavButton {
+    flex: 0 0 20%;
+    height: 100%;
+  }
+
+  & .SubmitButton {
+    flex: 1 0 45%;
+    height: 100%;
+  }
+}
