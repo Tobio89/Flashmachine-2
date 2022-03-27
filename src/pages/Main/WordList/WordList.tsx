@@ -1,11 +1,25 @@
 import WordListElement from "./WordListElement";
 
-import { useWordList } from "../../../hooks";
+import { Word } from "../../../types";
 
 import styles from "./WordList.module.scss";
 
-function WordList() {
-  const { wordList, removeWordFromList } = useWordList();
+interface Props {
+  wordList: Word[];
+  removeWordFromList: (_: Word) => void;
+  isLoadingTranslations: boolean;
+}
+
+function WordList({
+  wordList,
+  removeWordFromList,
+  isLoadingTranslations,
+}: Props) {
+  const deleteHandler = (w: Word) => {
+    if (!isLoadingTranslations) {
+      removeWordFromList(w);
+    }
+  };
 
   return (
     <div className={styles.WordList}>
@@ -13,7 +27,7 @@ function WordList() {
         <WordListElement
           key={w.content}
           word={w}
-          deleteHandler={() => removeWordFromList(w)}
+          deleteHandler={() => deleteHandler(w)}
         />
       ))}
     </div>

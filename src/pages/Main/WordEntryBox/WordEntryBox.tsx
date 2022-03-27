@@ -4,20 +4,28 @@ import classNames from "classnames";
 
 import { WORD_LIMIT } from "../../../const";
 
-import { useWordList } from "../../../hooks";
-
 import styles from "./WordEntryBox.module.scss";
+
+interface Props {
+  wordCount: number;
+  addWordToList: (_: { content: string }) => boolean;
+  isLoadingTranslations: boolean;
+}
 
 function toLabel(wordCount: number) {
   return `${wordCount} / ${WORD_LIMIT}`;
 }
 
-function WordEntryBox() {
+function WordEntryBox({
+  wordCount,
+  addWordToList,
+  isLoadingTranslations,
+}: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { wordCount, addWordToList } = useWordList();
-
   const handleKeyEntry = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (isLoadingTranslations) return;
+
     if (e.code === "Enter") {
       if (inputRef?.current?.value) {
         const newWord = {
@@ -37,7 +45,7 @@ function WordEntryBox() {
         ref={inputRef}
         onKeyDown={handleKeyEntry}
         placeholder={wordCount >= 30 ? "Max words reached" : "Add words here!"}
-        disabled={wordCount >= 30}
+        disabled={wordCount >= 30 || isLoadingTranslations}
       />
       <div
         className={classNames(styles.Counter, [

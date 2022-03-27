@@ -23,7 +23,7 @@ function useWordList() {
     }
   }, []); //eslint-disable-line
 
-  function addWordToList(newWord: Word): Boolean {
+  function addWordToList(newWord: Word): boolean {
     if (wordList.length < WORD_LIMIT) {
       if (!wordList.find((w) => w.content === newWord.content)) {
         setWordList([newWord, ...wordList]);
