@@ -1,20 +1,26 @@
+import { FlashcardContents } from "../../../types";
 import SideCell from "./SideCell";
-
-import { useFlashcards } from "../../../hooks";
 
 import styles from "./SideList.module.scss";
 
-function SideList() {
-  const { currentFlashcard, flashcardList, setCurrentFlashcard } =
-    useFlashcards();
+interface Props {
+  currentFlashcard: FlashcardContents;
+  flashcardList: FlashcardContents[];
+  handleChangeFlashcard: (f: FlashcardContents) => void;
+}
 
+function SideList({
+  currentFlashcard,
+  flashcardList,
+  handleChangeFlashcard,
+}: Props) {
   return (
     <div className={styles.SideList}>
       {flashcardList.map((f) => (
         <SideCell
           flashcard={f}
           isCurrent={currentFlashcard?.word === f.word}
-          setCurrent={() => setCurrentFlashcard(f)}
+          setCurrent={() => handleChangeFlashcard(f)}
         />
       ))}
     </div>

@@ -1,29 +1,21 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
 
-import { useFlashcards } from "../../../hooks";
-
 import styles from "./TextArea.module.scss";
 
-function TextArea() {
-  const { currentFlashcard, isEditing, handleEditing } = useFlashcards();
-  const [content, setContent] = useState(currentFlashcard?.meaning);
+interface Props {
+  isEditing: boolean;
+  contentToEdit: string;
+  handleEditContent: (_: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(e.target.value);
-    handleEditing(e);
-  };
-
-  useEffect(() => {
-    setContent(currentFlashcard?.meaning);
-  }, [currentFlashcard]);
-
+function TextArea({ isEditing, contentToEdit, handleEditContent }: Props) {
   return (
     <textarea
       className={classNames(styles.TextArea, isEditing && styles.editing)}
       disabled={!isEditing}
-      onChange={handleChange}
-      value={content}
+      onChange={handleEditContent}
+      value={contentToEdit}
     />
   );
 }

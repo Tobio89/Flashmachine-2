@@ -1,30 +1,25 @@
 import Button from "../../../components/ui/Button";
 
-import { useFlashcards } from "../../../hooks";
-
 import styles from "./EditorHeader.module.scss";
 
-function EditorHeader() {
-  const {
-    currentFlashcard,
-    removeCurrentFlashcard,
-    toggleEditMode,
-    isEditing,
-    submitEdits,
-  } = useFlashcards();
+interface Props {
+  title: string;
+  isEditing: boolean;
+  handleToggleEdit: () => void;
+  removeCurrentFlashcard: () => void;
+}
 
-  const handleEditSubmit = () => {
-    if (isEditing) {
-      submitEdits();
-    }
-    toggleEditMode();
-  };
-
+function EditorHeader({
+  title,
+  isEditing,
+  handleToggleEdit,
+  removeCurrentFlashcard,
+}: Props) {
   return (
     <div className={styles.EditorHeader}>
-      <h1>{currentFlashcard?.word || ""}</h1>
+      <h1>{title}</h1>
       <div className={styles.Controls}>
-        <Button className={styles.Button} onClick={handleEditSubmit}>
+        <Button className={styles.Button} onClick={handleToggleEdit}>
           {isEditing ? (
             <i className="fas fa-check"></i>
           ) : (
