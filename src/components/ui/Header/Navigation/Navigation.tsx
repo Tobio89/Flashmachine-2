@@ -14,7 +14,7 @@ function Navigation() {
 
   function handleBack() {
     if (!location.pathname.endsWith("/")) {
-      history.goBack();
+      history.push("/");
     } else {
       return;
     }
@@ -29,7 +29,7 @@ function Navigation() {
   return (
     <div className={styles.Navigation}>
       <Button className={styles.NavButton} onClick={handleBack}>
-        <i className="fas fa-reply"></i>
+        <i className="fas fa-home"></i>
       </Button>
       <Button
         className={styles.NavButton}
