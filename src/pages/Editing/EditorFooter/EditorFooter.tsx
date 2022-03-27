@@ -16,13 +16,13 @@ function EditorFooter({
   return (
     <div className={styles.EditorFooter}>
       <Button className={styles.NavButton} onClick={selectPreviousCard}>
-        &lt;
+        <i className="fas fa-arrow-circle-left"></i>
       </Button>
       <Button className={styles.SubmitButton} onClick={handleMakeFile}>
-        Download Flashcards
+        <i className="fas fa-file-download"></i>
       </Button>
       <Button className={styles.NavButton} onClick={selectNextCard}>
-        &gt;
+        <i className="fas fa-arrow-circle-right"></i>
       </Button>
     </div>
   );

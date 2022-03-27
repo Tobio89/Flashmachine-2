@@ -7,11 +7,13 @@
 
   & .NavButton {
     flex: 0 0 20%;
+    font-size: larger;
     height: 100%;
   }
 
   & .SubmitButton {
     flex: 1 0 45%;
+    font-size: larger;
     height: 100%;
   }
 }
