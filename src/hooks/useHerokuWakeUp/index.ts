@@ -13,13 +13,12 @@ function useHerokuWakeUp() {
           },
         });
         const data = await response.json();
-        alert(data);
         if (data["Flashmachine API status:"] === "Operational") {
           return true;
         }
         return false;
       } catch (e) {
-        alert(e);
+        console.log(e);
       }
     }
   );
