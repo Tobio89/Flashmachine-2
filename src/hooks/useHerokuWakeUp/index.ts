@@ -6,7 +6,12 @@ function useHerokuWakeUp() {
     "flashmachine-definitions",
     async () => {
       try {
-        const response = await fetch(APIPREFIX);
+        const response = await fetch(APIPREFIX, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
         const data = await response.json();
         if (data["Flashmachine API status:"] === "Operational") {
           return true;

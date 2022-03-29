@@ -35,7 +35,6 @@ function useGetTranslations() {
           }
         );
         const data = await response.json();
-        console.log("res", data);
         // Transform returned data
         const flashcards = defsToFlash(data);
 
