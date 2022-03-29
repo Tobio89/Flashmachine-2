@@ -1,15 +1,13 @@
 import { useMutation } from "react-query";
 
-import axiosInstance from "../../axiosInstance";
 import useStore from "../../store";
 
 import useWordList from "../useWordList";
 
 import { defsToFlash } from "./funcs";
 
-import { TranslationResponse } from "../../types";
 import { useHistory } from "react-router-dom";
-import { url } from "inspector";
+import { APIPREFIX } from "../../const";
 
 function useGetTranslations() {
   const { wordListAsArray } = useWordList();
@@ -24,17 +22,20 @@ function useGetTranslations() {
     async () => {
       try {
         const wordList = wordListAsArray();
-        const { data }: { data: TranslationResponse } = await axiosInstance({
-          url: "request_words/?nocache=" + new Date().getTime(),
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          data: {
-            word_array: wordList,
-          },
-        });
-
+        const response = await fetch(
+          APIPREFIX + "request_words/?nocache=" + new Date().getTime(),
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: JSON.stringify({
+              word_array: wordList,
+            }),
+          }
+        );
+        const data = await response.json();
+        console.log("res", data);
         // Transform returned data
         const flashcards = defsToFlash(data);
 

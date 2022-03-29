@@ -1,12 +1,13 @@
 import { useQuery } from "react-query";
-import axiosInstance from "../../axiosInstance";
+import { APIPREFIX } from "../../const";
 
 function useHerokuWakeUp() {
   const { data: isAwake, isLoading } = useQuery(
     "flashmachine-definitions",
     async () => {
       try {
-        const { data } = await axiosInstance.get("");
+        const response = await fetch(APIPREFIX);
+        const data = await response.json();
         if (data["Flashmachine API status:"] === "Operational") {
           return true;
         }
