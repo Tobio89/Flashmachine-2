@@ -9,6 +9,7 @@ import { defsToFlash } from "./funcs";
 
 import { TranslationResponse } from "../../types";
 import { useHistory } from "react-router-dom";
+import { url } from "inspector";
 
 function useGetTranslations() {
   const { wordListAsArray } = useWordList();
@@ -23,10 +24,16 @@ function useGetTranslations() {
     async () => {
       try {
         const wordList = wordListAsArray();
-        const { data }: { data: TranslationResponse } =
-          await axiosInstance.post("request_words/", {
+        const { data }: { data: TranslationResponse } = await axiosInstance({
+          url: "request_words/?nocache=" + new Date().getTime(),
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          data: {
             word_array: wordList,
-          });
+          },
+        });
 
         // Transform returned data
         const flashcards = defsToFlash(data);
