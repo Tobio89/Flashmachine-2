@@ -47,6 +47,7 @@ function useGetTranslations() {
         history.push("/editing");
       } catch (e) {
         console.log("Error: ", e);
+        alert(e);
       }
     }
   );
