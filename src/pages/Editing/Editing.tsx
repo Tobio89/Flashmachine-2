@@ -6,6 +6,7 @@ import SideList from "./SideList";
 import useEditor from "./useEditor";
 
 import styles from "./Editing.module.scss";
+import { BrowserView } from "react-device-detect";
 
 function Editing() {
   const {
@@ -38,11 +39,13 @@ function Editing() {
         handleToggleEdit={handleToggleEdit}
         removeCurrentFlashcard={removeCurrentFlashcard}
       />
-      <SideList
-        currentFlashcard={currentFlashcard}
-        flashcardList={flashcardList}
-        handleChangeFlashcard={handleChangeFlashcard}
-      />
+      <BrowserView>
+        <SideList
+          currentFlashcard={currentFlashcard}
+          flashcardList={flashcardList}
+          handleChangeFlashcard={handleChangeFlashcard}
+        />
+      </BrowserView>
       <TextArea
         isEditing={isEditing}
         contentToEdit={contentToEdit}

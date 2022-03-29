@@ -1,11 +1,19 @@
 .App {
-  width: 500px;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
 
-  & .Container {
-    background-color: var(--blue-1);
-    border-radius: 10px;
-    box-shadow: 0 5px 12px 0 var(--blue-0);
-    height: 600px;
-    width: 100%;
+  & .Outer {
+    flex: 0 1 500px;
+    padding: 5px;
+
+    & .Container {
+      background-color: var(--blue-1);
+      border-radius: 10px;
+      box-shadow: 0 5px 12px 0 var(--blue-0);
+      height: 600px;
+      width: 100%;
+    }
   }
 }

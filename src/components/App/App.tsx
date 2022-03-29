@@ -18,19 +18,21 @@ function App() {
   return (
     <BrowserRouter>
       <main className={styles.App}>
-        <Header />
-        <div className={styles.Container}>
-          <Switch>
-            <Route path="/help">
-              <Help />
-            </Route>
-            <Route path="/editing">
-              <Editing />
-            </Route>
-            <Route path="/">
-              <Main />
-            </Route>
-          </Switch>
+        <div className={styles.Outer}>
+          <Header />
+          <div className={styles.Container}>
+            <Switch>
+              <Route path="/help">
+                <Help />
+              </Route>
+              <Route path="/editing">
+                <Editing />
+              </Route>
+              <Route path="/">
+                <Main />
+              </Route>
+            </Switch>
+          </div>
         </div>
       </main>
     </BrowserRouter>

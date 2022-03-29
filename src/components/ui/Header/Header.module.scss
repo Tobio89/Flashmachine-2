@@ -3,11 +3,23 @@
   display: flex;
   height: 60px;
   justify-content: space-between;
+  max-width: 500px;
   padding: 0 10px 0 20px;
-  width: 500px;
 
   & h1 {
     color: white;
     margin: 0;
+  }
+
+  & .FullHeader {
+    @media only screen and (max-width: 400px) {
+      display: none;
+    }
+  }
+
+  & .SmallHeader {
+    @media only screen and (min-width: 400px) {
+      display: none;
+    }
   }
 }
