@@ -1,10 +1,11 @@
-import { useWordList, useGetTranslations } from "../../hooks";
+import { useWordList, useNaverDict } from "../../hooks";
 
 function useMainPageFns() {
   const { wordCount, wordList, addWordToList, removeWordFromList } =
     useWordList();
-  const { requestWords, isLoading: isLoadingTranslations } =
-    useGetTranslations();
+  // const { requestWords, isLoading: isLoadingTranslations } =
+  //   useGetTranslations();
+  const { requestWords, isLoading: isLoadingTranslations } = useNaverDict();
 
   const submitWordRequest = () => {
     if (!isLoadingTranslations && !!wordCount) {

@@ -1,3 +1,5 @@
+import { BrowserView } from "react-device-detect";
+
 import EditorFooter from "./EditorFooter";
 import EditorHeader from "./EditorHeader";
 import TextArea from "./TextArea";
@@ -6,7 +8,6 @@ import SideList from "./SideList";
 import useEditor from "./useEditor";
 
 import styles from "./Editing.module.scss";
-import { BrowserView } from "react-device-detect";
 
 function Editing() {
   const {

@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import classNames from "classnames";
 
-import { WORD_LIMIT } from "../../../const";
+import { toLabel } from "./fns";
 
 import styles from "./WordEntryBox.module.scss";
 
@@ -10,10 +10,6 @@ interface Props {
   wordCount: number;
   addWordToList: (_: { content: string }) => boolean;
   isLoadingTranslations: boolean;
-}
-
-function toLabel(wordCount: number) {
-  return `${wordCount} / ${WORD_LIMIT}`;
 }
 
 function WordEntryBox({
